@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Transportation Budgets</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--add required stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+
+    <!--animation-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../../dist/storymap.css">
+
+    <!--add required libraries-->
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+    <script src="js/storymap.js"></script>
+    <script src="js/globeminimap.js"></script>
+
+    <!--story map plugin-->
+    <script src="../../dist/storymap.js"></script>
+    <link rel="stylesheet" href="css/storymap.css">
+    <!--My CSS-->
+    <link rel="stylesheet" type="text/css" href="css/LPRO_Style.css">
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 col-md-2 main">
+            <section data-scene="scene1">
+                <h1>Legislative Policy and Research Office</h1>
+                <h2>County Transportation Budgets</h2>
+                <p>This gives me space to give descriptions.</p>
+                <img src="img/LPRO Logo no text.png" alt=""/>
+            </section>
+            <section data-scene="scene2">
+                <h1>Legislative Policy and Research Office</h1>
+                <h2>City Budgets</h2>
+                <img src="img/LPRO Logo no text.png" alt=""/>
+            </section>
+            <section data-scene="scene3">
+                <h1>Legislative Policy and Research Office</h1>
+                <h2>Transportation Budgets by House District</h2>
+                <img src="img/LPRO Logo no text.png" alt=""/>
+            </section>
+            <section data-scene="scene4">
+                <h1> Legislative Policy and Research Office</h1>
+                <h2>Transportation Budgets by Senate District</h2>
+                <img src="img/LPRO Logo no text.png" alt=""/>
+            </section>
+        </div>
+        <div id="map" class="col-sm-4 col-md-2 sidebar"></div>
+    </div>
+
+    <!--add a scrolling down arrow-->
+    <div class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></div>
+    <!--add a navigation bar-->
+    <div class="navbar text-center"></div>
+
+</div>
+<script type="text/javascript">
+    var layers = {
+        'layer 1': [ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapbox.satellite'}),
+            '<i style="background: black; opacity: 0.5"></i><p><b>legend 1</b></p>'],
+        'layer 2': [ L.geoJson.ajax('js/OR_counties.js', {color: 'black', weight: .5}),
+            '<i style="background: orange; opacity: 0.5"></i><p><b>legend 2</b></p>'],
+        'layer 3': [ L.geoJson.ajax('js/OR_HDist.js', {color: 'black', weight: .5}),
+            '<i style="background: orange; opacity: 0.5"></i><p><b>legend 2</b></p>'],
+        'layer 4': [ L.geoJson.ajax('js/OR_SDist.js', {color: 'black', weight: .5}),
+            '<i style="background: orange; opacity: 0.5"></i><p><b>legend 2</b></p>']
+    };
+    var scenes = {
+        scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "scene 1"},
+        scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1'], name: "scene 2"},
+        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 3'], name: "scene 3"},
+        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 4'], name: "scene 4"}
+    };
+    $('.main').storymap({
+        scenes: scenes,
+        layers: layers,
+        legend: true,
+        scale: true,
+        navbar: true,
+        createMap: function () {
+            var map = L.map('map').setView([44, -120], 7);
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                minZoom: 6,
+                attribution: '',
+                id: 'mapbox.light'
+            }).addTo(map);
+            return map;
+        }
+    });
+</script>
+</body>
+</html>
