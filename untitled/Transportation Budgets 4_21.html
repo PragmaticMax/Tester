@@ -69,13 +69,13 @@
 <script type="text/javascript">
     var layers = {
         'layer 1': [ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapbox.satellite'}),
-            '<i style="background: black; opacity: 0.5"></i><p><b>legend 1</b></p>'],
-        'layer 2': [ L.geoJson.ajax('js/OR_counties.js', {color: 'black', weight: .5}),
-            '<i style="background: orange; opacity: 0.5"></i><p><b>legend 2</b></p>'],
+            '<i style="background: black; opacity: 0.5"></i><p><b>County Transportation Budget</b></p>'],
+        'layer 2': [ L.geoJson.ajax('js/OR_CBud.js', {color: 'black', weight: .5}),
+            '<i style="background: orange; opacity: 0.5"></i><p><b>City Transportation Budget</b></p>'],
         'layer 3': [ L.geoJson.ajax('js/OR_HDist.js', {color: 'black', weight: .5}),
-            '<i style="background: orange; opacity: 0.5"></i><p><b>legend 2</b></p>'],
+            '<i style="background: #0b08e2; opacity: 0.5"></i><p><b>House Districts</b></p>'],
         'layer 4': [ L.geoJson.ajax('js/OR_SDist.js', {color: 'black', weight: .5}),
-            '<i style="background: orange; opacity: 0.5"></i><p><b>legend 2</b></p>']
+            '<i style="background: #ff0009; opacity: 0.5"></i><p><b>Senate Districts</b></p>']
     };
     var scenes = {
         scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "scene 1"},
