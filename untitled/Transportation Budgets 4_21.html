@@ -39,7 +39,7 @@
                 <h1>Legislative Policy and Research Office</h1>
                 <h2>County Transportation Budgets</h2>
                 <p>This gives me space to give descriptions.</p>
-                <img src="img/LPRO Logo no text.png" alt=""/>
+                <img src="img/LPRO Logo no text.png" alt="" style="width:304px;height:228px"/>
             </section>
             <section data-scene="scene2">
                 <h1>Legislative Policy and Research Office</h1>
@@ -56,6 +56,11 @@
                 <h2>Transportation Budgets by Senate District</h2>
                 <img src="img/LPRO Logo no text.png" alt=""/>
             </section>
+            <section data-scene="scene5">
+                <h1> Legislative Policy and Research Office</h1>
+                <h2>Transportation Budgets by City</h2>
+                <img src="img/LPRO Logo no text.png" alt=""/>
+            </section>
         </div>
         <div id="map" class="col-sm-4 col-md-2 sidebar"></div>
     </div>
@@ -64,8 +69,8 @@
     <div class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></div>
     <!--add a navigation bar-->
     <div class="navbar text-center"></div>
-
-</div>
+    </div>
+<div class="navbar text-center"></div>
 <script type="text/javascript">
     var layers = {
         'layer 1': [ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapbox.satellite'}),
@@ -75,18 +80,20 @@
         'layer 3': [ L.geoJson.ajax('js/OR_HDist.js', {color: 'black', weight: .5}),
             '<i style="background: #0b08e2; opacity: 0.5"></i><p><b>House Districts</b></p>'],
         'layer 4': [ L.geoJson.ajax('js/OR_SDist.js', {color: 'black', weight: .5}),
-            '<i style="background: #ff0009; opacity: 0.5"></i><p><b>Senate Districts</b></p>']
+            '<i style="background: #ff0009; opacity: 0.5"></i><p><b>Senate Districts</b></p>'],
+        'layer 5': [ L.geoJson.ajax('js/City_Bud.js', {color: 'black', weight: .5})]
     };
     var scenes = {
         scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "scene 1"},
-        scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1'], name: "scene 2"},
+        scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 5'], name: "scene 2"},
         scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 3'], name: "scene 3"},
-        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 4'], name: "scene 4"}
+        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 4'], name: "scene 4"},
+        scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 5'], name: "scene 5"}
     };
     $('.main').storymap({
         scenes: scenes,
         layers: layers,
-        legend: true,
+        legend: false,
         scale: true,
         navbar: true,
         createMap: function () {
@@ -95,7 +102,7 @@
                 maxZoom: 18,
                 minZoom: 6,
                 attribution: '',
-                id: 'mapbox.light'
+                id: 'mapbox.satellite'
             }).addTo(map);
             return map;
         }
