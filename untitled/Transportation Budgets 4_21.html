@@ -75,21 +75,23 @@
     var layers = {
         'layer 1': [ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapbox.satellite'}),
             '<i style="background: black; opacity: 0.5"></i><p><b>County Transportation Budget</b></p>'],
-        'layer 2': [ L.geoJson.ajax('js/OR_CBud.js', {color: 'black', weight: .5}),
+        'layer 2': [ L.geoJson.ajax('js/OR_CounBud.geojson', {color: 'black', weight: .5}),
             '<i style="background: orange; opacity: 0.5"></i><p><b>City Transportation Budget</b></p>'],
-        'layer 3': [ L.geoJson.ajax('js/OR_HDist.js', {color: 'black', weight: .5}),
+        'layer 3': [ L.geoJson.ajax('js/OR_HDist.geojson', {color: 'black', weight: .5}),
             '<i style="background: #0b08e2; opacity: 0.5"></i><p><b>House Districts</b></p>'],
-        'layer 4': [ L.geoJson.ajax('js/OR_SDist.js', {color: 'black', weight: .5}),
+        'layer 4': [ L.geoJson.ajax('js/OR_SDist.geojson', {color: 'black', weight: .5}),
             '<i style="background: #ff0009; opacity: 0.5"></i><p><b>Senate Districts</b></p>'],
-        'layer 5': [ L.geoJson.ajax('js/City_Bud.js', {color: 'black', weight: .5})]
+        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: 'blue', weight: .5})]
     };
+
     var scenes = {
-        scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "scene 1"},
-        scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 5'], name: "scene 2"},
-        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 3'], name: "scene 3"},
-        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 4'], name: "scene 4"},
+        scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "County"},
+        scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 5'], name: "City"},
+        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 3'], name: "House Districts"},
+        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 4'], name: "Senate Districts"},
         scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 5'], name: "scene 5"}
     };
+
     $('.main').storymap({
         scenes: scenes,
         layers: layers,
@@ -107,6 +109,20 @@
             return map;
         }
     });
+    var defaultStyle = {
+        color: "#2262CC",
+        weight: 2,
+        opacity: 0.6,
+        fillOpacity: 0.1,
+        fillColor: "#2262CC"
+    };
+   var onEachFeature = function(feature, layer) {
+        layer.setStyle(defaultStyle);
+    };
+   var featureLayer = L.geoJson(boundaries, {
+       onEachFeature: onEachFeature
+    });
+    map.addLayer(featureLayer);
 </script>
 </body>
 </html>
