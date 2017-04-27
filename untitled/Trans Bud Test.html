@@ -69,7 +69,7 @@
     //////////////////////////////////////////////////////////////////////////
     // Scene 1: Plain
     var counties_legend ='<i style="background: black; opacity: 0.5"></i><p><b>Counties</b></p>';
-    var counties = L.geoJson.ajax('js/OR_CBud.js',  {
+    var counties = L.geoJson.ajax('js/OR_CounBud.geojson',  {
         color: 'black',
         weight: 2,
         opacity: 0.3});
@@ -78,16 +78,18 @@
     // Set function for color ramp
     function setColor(density){
         //condition ? valueIfTrue : valueIfFalse
-        return  density > 1000000 ? '#b30000' :
-                density > 130000 ? '#e34a33' :
-                density > 100000 ? '#fc8d59' :
-                density >  50000 ? '#fdcc8a' :
-                                '#fef0d9';
+        return  density > 13000000 ? '#006d2c' :
+                density > 10000000 ? '#31a354' :
+                density >  5000000 ? '#74c476' :
+                density >  1000000 ? '#a1d99b' :
+                density >   500000 ? '#c7e9c0' :
+                                     '#edf8e9' ;
+
     }
     // Set style function that sets fill color property equal to cell tower density
-    function style(feature) {
+    function style(features) {
         return {
-            fillColor: setColor(feature.properties.CT_CNT),
+            fillColor: setColor(features.properties.Budget),
             fillOpacity: 0.5,
             weight: 2,
             opacity: 0.8,
@@ -95,31 +97,33 @@
             dashArray: '4'
         };
     }
-    var counties_choropleth = L.geoJson.ajax('../../assets/counties.geojson',
+    var counties_choropleth = L.geoJson.ajax('js/OR_CounBud.geojson',
         {
             style: style,
             onEachFeature: function (feature, layer) {
-                layer.bindTooltip(feature.properties.NAME, {className: 'feature-label', permanent: true, direction: 'center'});
+                layer.bindTooltip(features.properties.instName, {className: 'feature-label', permanent: false, direction: 'center'});
             }
         });
-    var counties_choropleth_legend = '<p><b># of Towers</b></p>' +
-        '<i style="background: #fef0d9; opacity: 0.5"></i><p><b>1 - 4</b></p>' +
-        '<i style="background: #fdcc8a; opacity: 0.5"></i><p><b>5 - 9</b></p>' +
-        '<i style="background: #fc8d59; opacity: 0.5"></i><p><b>10 - 12</b></p>' +
-        '<i style="background: #e34a33; opacity: 0.5"></i><p><b>13 - 17</b></p>' +
-        '<i style="background: #b30000; opacity: 0.5"></i><p><b>18+</b></p>';
+    var counties_choropleth_legend = '<p><b>County Budgets</b></p>' +
+        '<i style="background: #edf8e9; opacity: 0.5"></i><p><b>0 - 49000</b></p>' +
+        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>50000- 499999</b></p>' +
+        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>500000- 999999</b></p>' +
+        '<i style="background: #a1d99b; opacity: 0.5"></i><p><b>1000000 - 49999999</b></p>' +
+        '<i style="background: #74c476; opacity: 0.5"></i><p><b>5000000 - 9999999</b></p>' +
+        '<i style="background: #31a354; opacity: 0.5"></i><p><b>10000000 - 12999999</b></p>' +
+        '<i style="background: #006d2c; opacity: 0.5"></i><p><b>13000000+</b></p>';
     //////////////////////////////////////////////////////////////////////////
     // Scene 3: Marker
     $('html > head').append($("<style> .marker-icon { color: red; font-size: 15px; text-shadow: 0 0 3px #ffffff;} </style>"));
     // $('html > head').append($("<style> .marker-icon { color: #0000ff; font-size: 15px; text-shadow:1px 1px 2px #ffffff, 0 0 25px rgba(0,0,255,0.75), 0 0 5px rgba(0,0,139,0.78);} </style>")); // glow effect: https://adventuresinmapping.com/2016/10/17/firefly-cartography/
-    var towers = L.geoJson.ajax('../../assets/cell_towers.geojson', {
+    var towers = L.geoJson.ajax('js/OR_CitBud.geojson', {
         pointToLayer: function (feature, latlng) {
             delay = Math.floor((126 + latlng.lng) / 10 * 2000);
             //delay =Math.floor(Math.random() * 400);
             return L.marker(latlng, {bounceOnAdd: true,  bounceOnAddOptions: {duration: 200, height: window.innerHeight, delay:delay}, icon: L.divIcon({className: 'glyphicon glyphicon-signal marker-icon'})});
         },
         onEachFeature: function (feature, layer) {
-            layer.bindTooltip(feature.properties.Name, {sticky: true, className: "feature-tooltip"});
+            layer.bindTooltip(feature.properties.City_Trans_Buds_Budget, {sticky: true, className: "feature-tooltip"});
         }
     });
     var tower_legend ='<i class="glyphicon glyphicon-signal marker-icon"></i><p><b>Tower</b></p>';
@@ -129,7 +133,7 @@
     for (i =1; i < 11; i++) {
         $('html > head').append($("<style> .marker-icon-" + i.toString() + " { color: " + colors[i] + "; font-size: 15px; text-shadow: 0 0 3px #ffffff;} </style>"));
     }
-    var towers_color = L.geoJson.ajax('../../assets/cell_towers.geojson', {
+    var towers_color = L.geoJson.ajax('js/OR_HDist.geojson', {
         pointToLayer: function (feature, latlng) {
             if (feature.properties.company === "New Cingular") {
                 return L.marker(latlng, {icon: L.divIcon({className: 'glyphicon glyphicon-signal marker-icon-1'})});
@@ -170,7 +174,7 @@
         '<i class="glyphicon glyphicon-signal marker-icon-10"></i><p>Others</p>';
     //////////////////////////////////////////////////////////////////////////
     // Scene 5: circleMarker
-    var towers_circle = L.geoJson.ajax('../../assets/cell_towers.geojson', {
+    var towers_circle = L.geoJson.ajax('js/OR_SDist.geojson', {
         style: function (feature) {
             return {
                 fillColor: chroma.random(),
@@ -207,14 +211,14 @@
     var layers = {
         'counties': [counties, counties_legend],
         'counties_choropleth': [ counties_choropleth, counties_choropleth_legend],
-        'towers': [towers, tower_legend],
+        'House Districts': [towers, tower_legend],
         'towers_color': [towers_color, towers_color_legend],
         'towers_circle': [towers_circle, towers_circle_legend],
         'towers_circle2': [towers_circle2, towers_circle2_legend],
-        'darkLayer': [darkLayer]
+        'Senate Districts': [darkLayer]
     };
     var scenes = {
-        scene1: {lat: 43.5709884, lng: -122.3770306, zoom: 6, name: 'Plain', layers: ['counties']},
+        scene1: {lat: 43.5709884, lng: -122.3770306, zoom: 6, name: 'County', layers: ['counties']},
         scene2: {lat: 44, lng: -123.5, zoom: 7, name: 'Choropleth', layers: ['counties_choropleth']},
         scene3: {lat: 44, lng: -123.5, zoom: 7, name: 'towers', layers: ['towers']},
         scene4: {lat: 44, lng: -123.5, zoom: 7, name: 'towers categorized by companies', layers: ['towers_color']},
