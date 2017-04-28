@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family:  'Open Sans', sans-serif;
+    font-family:  'Goudy Old Style';
 
 }
 
@@ -18,7 +18,7 @@ body {
 h3 {
     margin: 0;
     padding-top: 100px;
-    font-family:  Lobster, 'Open Sans', sans-serif;
+    font-family:  "Goudy Old Style";
     color: rgba(169, 169, 169, 0.8);
     font-size: 50px;
 }
@@ -235,7 +235,7 @@ section {
     line-height: 16px;
     width: 130px;
     color: #333333;
-    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-family: 'Goudy Old Style', Helvetica, sans-serif;
     padding: 6px 8px;
     background: rgba(255,255,255,0.5);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
