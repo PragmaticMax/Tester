@@ -56,11 +56,6 @@
                 <h2>Transportation Budgets by Senate District</h2>
                 <img src="img/LPRO Logo no text.png" alt=""/>
             </section>
-            <section data-scene="scene5">
-                <h1> Legislative Policy and Research Office</h1>
-                <h2>Transportation Budgets by City</h2>
-                <img src="img/LPRO Logo no text.png" alt=""/>
-            </section>
         </div>
         <div id="map" class="col-sm-4 col-md-2 sidebar"></div>
     </div>
@@ -72,35 +67,77 @@
     </div>
 <div class="navbar text-center"></div>
 <script type="text/javascript">
+    function getColor(County_Trans_Buds_Budget){
+        //condition ? valueIfTrue : valueIfFalse
+        return  County_Trans_Buds_Budget > 14000000 ? '#00441b' :
+                County_Trans_Buds_Budget > 10000000 ? '#006d2c' :
+                County_Trans_Buds_Budget >  7000000 ? '#238b45' :
+                County_Trans_Buds_Budget >  3500000 ? '#41ae76' :
+                County_Trans_Buds_Budget >  2500000 ? '#66c2a4' :
+                County_Trans_Buds_Budget >  1500000 ? '#99d8c9' :
+                County_Trans_Buds_Budget >  1000000 ? '#ccece6' :
+                County_Trans_Buds_Budget >   500000 ? '#e5f5f9' :
+                                                      '#f7fcfd' ;
+
+    }
+    // Set style function that sets fill color property equal to cell tower density
+    function style(features) {
+        return {
+            fillColor: getColor(features.properties.County_Trans_Buds_Budget),
+            fillOpacity: 0.5,
+            weight: 2,
+            opacity: 0.8,
+            color: '#ffffff',
+            dashArray: '4'
+        };
+    }
+    var counties_choropleth = L.geoJson.ajax('js/OR_CounBud.geojson',
+        {
+            style: style,
+            onEachFeature: function (features, layer) {
+                layer.bindTooltip(features.properties.County_Trans_Buds_Budget, {className: 'feature-label', permanent: false, direction: 'center'});
+            }
+        });
+    var counties_choropleth_legend = '<p><b>County Budgets</b></p>' +
+        '<i style="background: #edf8e9; opacity: 0.5"></i><p><b>0 - 499999</b></p>' +
+        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>500000 - 999999</b></p>' +
+        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>1000000 - 1499999</b></p>' +
+        '<i style="background: #a1d99b; opacity: 0.5"></i><p><b>1500000 - 2499999</b></p>' +
+        '<i style="background: #74c476; opacity: 0.5"></i><p><b>2500000 - 3499999</b></p>' +
+        '<i style="background: #31a354; opacity: 0.5"></i><p><b>3500000 - 6999999</b></p>' +
+        '<i style="background: #31a354; opacity: 0.5"></i><p><b>7000000 - 9999999</b></p>' +
+        '<i style="background: #31a354; opacity: 0.5"></i><p><b>10000000 - 13999999</b></p>' +
+        '<i style="background: #006d2c; opacity: 0.5"></i><p><b>14000000+</b></p>';
+
+
     var layers = {
-        'layer 1': [ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {id: 'mapbox.satellite'}),
+        'layer 1': [counties_choropleth, counties_choropleth_legend,
             '<i style="background: black; opacity: 0.5"></i><p><b>County Transportation Budget</b></p>'],
-        'layer 2': [ L.geoJson.ajax('js/OR_CounBud.geojson', {color: 'black', weight: .5}),
-            '<i style="background: orange; opacity: 0.5"></i><p><b>City Transportation Budget</b></p>'],
+        'layer 2': [ L.geoJson.ajax('js/OR_CounBud.geojson', {color: 'white', weight: .5}),
+            '<i style="background: orange; opacity: 0.5"></i><p><b>County Transportation Budget</b></p>'],
         'layer 3': [ L.geoJson.ajax('js/OR_HDist.geojson', {color: 'black', weight: .5}),
             '<i style="background: #0b08e2; opacity: 0.5"></i><p><b>House Districts</b></p>'],
         'layer 4': [ L.geoJson.ajax('js/OR_SDist.geojson', {color: 'black', weight: .5}),
             '<i style="background: #ff0009; opacity: 0.5"></i><p><b>Senate Districts</b></p>'],
-        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: 'blue', weight: .5})]
+        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: '#d95f0e', weight: 1})]
     };
 
     var scenes = {
         scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "County"},
-        scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 5'], name: "City"},
-        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 3'], name: "House Districts"},
-        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 4'], name: "Senate Districts"},
-        scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 1', 'layer 5'], name: "scene 5"}
+        scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 5'], name: "City"},
+        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3'], name: "House Districts"},
+        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4'], name: "Senate Districts"}
     };
 
     $('.main').storymap({
         scenes: scenes,
         layers: layers,
-        legend: false,
+        legend: true,
         scale: true,
         navbar: true,
         createMap: function () {
             var map = L.map('map').setView([44, -120], 7);
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
                 maxZoom: 18,
                 minZoom: 6,
                 attribution: '',
@@ -109,20 +146,6 @@
             return map;
         }
     });
-    var defaultStyle = {
-        color: "#2262CC",
-        weight: 2,
-        opacity: 0.6,
-        fillOpacity: 0.1,
-        fillColor: "#2262CC"
-    };
-   var onEachFeature = function(feature, layer) {
-        layer.setStyle(defaultStyle);
-    };
-   var featureLayer = L.geoJson(boundaries, {
-       onEachFeature: onEachFeature
-    });
-    map.addLayer(featureLayer);
 </script>
 </body>
 </html>
