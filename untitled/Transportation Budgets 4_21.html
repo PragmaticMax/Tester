@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml">
 <head>
     <title>Transportation Budgets</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--My Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
     <!--add required stylesheets-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -37,24 +40,20 @@
         <div class="col-sm-4 col-md-2 main">
             <section data-scene="scene1">
                 <h1>Legislative Policy and Research Office</h1>
-                <h2>County Transportation Budgets</h2>
+                <h2><img src="img/LPRO Logo no text.png" alt="" style="width:85px;height:56px"/>County Transportation Budgets</h2>
                 <p>This gives me space to give descriptions.</p>
-                <img src="img/LPRO Logo no text.png" alt="" style="width:304px;height:228px"/>
             </section>
             <section data-scene="scene2">
                 <h1>Legislative Policy and Research Office</h1>
-                <h2>City Budgets</h2>
-                <img src="img/LPRO Logo no text.png" alt=""/>
+                <h2><img src="img/LPRO Logo no text.png" alt="" style="width:85px;height:56px"/>    City Budgets</h2>
             </section>
             <section data-scene="scene3">
                 <h1>Legislative Policy and Research Office</h1>
-                <h2>Transportation Budgets by House District</h2>
-                <img src="img/LPRO Logo no text.png" alt=""/>
+                <h2><img src="img/LPRO Logo no text.png" alt="" style="width:85px;height:56px"/>Transportation Budgets by House District</h2>
             </section>
             <section data-scene="scene4">
                 <h1> Legislative Policy and Research Office</h1>
-                <h2>Transportation Budgets by Senate District</h2>
-                <img src="img/LPRO Logo no text.png" alt=""/>
+                <h2><img src="img/LPRO Logo no text.png" alt="" style="width:85px;height:56px"/>Transportation Budgets by Senate District</h2>
             </section>
         </div>
         <div id="map" class="col-sm-4 col-md-2 sidebar"></div>
@@ -65,7 +64,6 @@
     <!--add a navigation bar-->
     <div class="navbar text-center"></div>
     </div>
-<div class="navbar text-center"></div>
 <script type="text/javascript">
     function getColor(County_Trans_Buds_Budget){
         //condition ? valueIfTrue : valueIfFalse
@@ -84,7 +82,7 @@
     function style(features) {
         return {
             fillColor: getColor(features.properties.County_Trans_Buds_Budget),
-            fillOpacity: 0.5,
+            fillOpacity: 0.8,
             weight: 2,
             opacity: 0.8,
             color: '#ffffff',
@@ -95,7 +93,8 @@
         {
             style: style,
             onEachFeature: function (features, layer) {
-                layer.bindTooltip(features.properties.County_Trans_Buds_Budget, {className: 'feature-label', permanent: false, direction: 'center'});
+                layer.bindTooltip(features.properties.instName, {className: 'feature-label', permanent: false,
+                    direction: 'center'});
             }
         });
     var counties_choropleth_legend = '<p><b>County Budgets</b></p>' +
@@ -114,19 +113,19 @@
         'layer 1': [counties_choropleth, counties_choropleth_legend,
             '<i style="background: black; opacity: 0.5"></i><p><b>County Transportation Budget</b></p>'],
         'layer 2': [ L.geoJson.ajax('js/OR_CounBud.geojson', {color: 'white', weight: .5}),
-            '<i style="background: orange; opacity: 0.5"></i><p><b>County Transportation Budget</b></p>'],
+            '<i style="opacity: 0.5"></i><p><b>County Transportation Budgets</b></p>'],
         'layer 3': [ L.geoJson.ajax('js/OR_HDist.geojson', {color: 'black', weight: .5}),
-            '<i style="background: #0b08e2; opacity: 0.5"></i><p><b>House Districts</b></p>'],
+            '<i style="opacity: 0.5"></i><p><b>House Districts</b></p>'],
         'layer 4': [ L.geoJson.ajax('js/OR_SDist.geojson', {color: 'black', weight: .5}),
-            '<i style="background: #ff0009; opacity: 0.5"></i><p><b>Senate Districts</b></p>'],
+            '<i style="opacity: 0.5"></i><p><b>Senate Districts</b></p>'],
         'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: '#d95f0e', weight: 1})]
     };
 
     var scenes = {
         scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "County"},
         scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 5'], name: "City"},
-        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3'], name: "House Districts"},
-        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4'], name: "Senate Districts"}
+        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3', 'layer 5'], name: "House Districts"},
+        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4', 'layer 5'], name: "Senate Districts"}
     };
 
     $('.main').storymap({
