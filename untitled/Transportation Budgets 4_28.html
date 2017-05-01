@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!--My Favicon-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favico.ico" type="image/x-icon">
 
     <!--add required stylesheets-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -41,21 +41,25 @@
     <div class="row">
         <div class="col-sm-4 col-md-2 main">
             <section data-scene="scene1">
-                <h1>Legislative Policy and Research Office</h1>
-                <h2><img src="img/LPRO Logo no text.png" alt="" style="width:85px;height:56px"/>County Transportation Budgets</h2>
-                <p>This gives me space to give descriptions.</p>
+                <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
+                <h2>Oregon Transportation Budgets</h2>
+                <p>Throughout the state of Oregon, transportation infrastructure is funded through three different levels: Local (City), County, and State. This piece will provide an interactive tool that allows the Oregon Legislative Assembly explore the Local and County transportation budgets.</p>
             </section>
             <section data-scene="scene2">
-                <h1>Legislative Policy and Research Office</h1>
-                <h2><img src="img/LPRO Logo no text.png" alt="" style="width:85px;height:56px"/>    City Budgets</h2>
+                <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
+                <h2>County Budgets</h2>
             </section>
             <section data-scene="scene3">
-                <h1>Legislative Policy and Research Office</h1>
-                <h2><img src="img/LPRO Logo no text.png" alt="" style="width:85px;height:56px"/>Transportation Budgets by House District</h2>
+                <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
+                <h2>City Budgets</h2>
             </section>
             <section data-scene="scene4">
-                <h1> Legislative Policy and Research Office</h1>
-                <h2><img src="img/LPRO Logo no text.png" alt="" style="width:85px;height:56px"/>Transportation Budgets by Senate District</h2>
+                <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
+                <h2>House Districts</h2>
+            </section>
+            <section data-scene="scene5">
+            <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
+            <h2>Senate Districts</h2>
             </section>
         </div>
         <div id="map" class="col-sm-4 col-md-2 sidebar"></div>
@@ -84,21 +88,21 @@
     function style(features) {
         return {
             fillColor: getColor(features.properties.County_Trans_Buds_Budget),
-            fillOpacity: 0.8,
-            weight: 2,
-            opacity: 0.8,
-            color: '#ffffff',
-            dashArray: '4'
+            fillOpacity: 0.7,
+            weight: 1,
+            opacity: 0.7,
+            color: '#000000'
         };
     }
     var counties_choropleth = L.geoJson.ajax('js/OR_CounBud.geojson',
         {
             style: style,
             onEachFeature: function (features, layer) {
-                layer.bindTooltip(features.properties.instName, {className: 'feature-label', permanent: false,
+                layer.bindTooltip(features.properties.County_Trans_Buds_Budget, {className: 'feature-label', permanent: false,
                     direction: 'center'});
-            }
+    }
         });
+
     var counties_choropleth_legend = '<p><b>County Budgets</b></p>' +
         '<i style="background: #edf8e9; opacity: 0.5"></i><p><b>0 - 499999</b></p>' +
         '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>500000 - 999999</b></p>' +
@@ -110,6 +114,16 @@
         '<i style="background: #31a354; opacity: 0.5"></i><p><b>10000000 - 13999999</b></p>' +
         '<i style="background: #006d2c; opacity: 0.5"></i><p><b>14000000+</b></p>';
 
+    var CitPop = L.geoJson.ajax('js/OR_CitBud.geojson', {
+        pointToLayer: function (features, latlng) {
+            delay = Math.floor((126 + latlng.lng) / 10 * 2000);
+            //delay =Math.floor(Math.random() * 400);
+            return L.marker(latlng, {bounceOnAdd: true,  bounceOnAddOptions: {duration: 200, height: window.innerHeight, delay:delay}});
+        },
+        onEachFeature: function (features, layer) {
+            layer.bindTooltip(features.properties.County_Trans_Buds_Budget, {sticky: true, className: "feature-tooltip"});
+        }
+    });
 
     var layers = {
         'layer 1': [counties_choropleth, counties_choropleth_legend,
@@ -124,10 +138,11 @@
     };
 
     var scenes = {
-        scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "County"},
-        scene2: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 5'], name: "City"},
-        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3', 'layer 5'], name: "House Districts"},
-        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4', 'layer 5'], name: "Senate Districts"}
+        scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7},
+        scene2: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "County"},
+        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 5'], name: "City"},
+        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3', 'layer 5'], name: "House Districts"},
+        scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4', 'layer 5'], name: "Senate Districts"}
     };
 
     $('.main').storymap({
