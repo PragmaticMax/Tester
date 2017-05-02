@@ -36,7 +36,6 @@
 
 </head>
 <body>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 col-md-2 main">
@@ -97,8 +96,8 @@
     var counties_choropleth = L.geoJson.ajax('js/OR_CounBud.geojson',
         {
             style: style,
-            onEachFeature: function (features, layer) {
-                layer.bindTooltip(features.properties.County_Trans_Buds_Budget, {className: 'feature-label', permanent: false,
+            onEachFeature: function (feature, layer) {
+                layer.bindTooltip(feature.properties.County_Trans_Buds_Budget, { permanent: false,
                     direction: 'center'});
     }
         });
@@ -114,17 +113,6 @@
         '<i style="background: #31a354; opacity: 0.5"></i><p><b>10000000 - 13999999</b></p>' +
         '<i style="background: #006d2c; opacity: 0.5"></i><p><b>14000000+</b></p>';
 
-    var CitPop = L.geoJson.ajax('js/OR_CitBud.geojson', {
-        pointToLayer: function (features, latlng) {
-            delay = Math.floor((126 + latlng.lng) / 10 * 2000);
-            //delay =Math.floor(Math.random() * 400);
-            return L.marker(latlng, {bounceOnAdd: true,  bounceOnAddOptions: {duration: 200, height: window.innerHeight, delay:delay}});
-        },
-        onEachFeature: function (features, layer) {
-            layer.bindTooltip(features.properties.County_Trans_Buds_Budget, {sticky: true, className: "feature-tooltip"});
-        }
-    });
-
     var layers = {
         'layer 1': [counties_choropleth, counties_choropleth_legend,
             '<i style="background: black; opacity: 0.5"></i><p><b>County Transportation Budget</b></p>'],
@@ -134,21 +122,32 @@
             '<i style="opacity: 0.5"></i><p><b>House Districts</b></p>'],
         'layer 4': [ L.geoJson.ajax('js/OR_SDist.geojson', {color: 'black', weight: .5}),
             '<i style="opacity: 0.5"></i><p><b>Senate Districts</b></p>'],
-        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: '#d95f0e', weight: 1})]
+        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: '#d95f0e', weight: 1}),
+            function onEachFeature(feature, layer) {
+                if (feature.properties && feature.properties.City_Trans_Buds_Budget) {
+                    layer.bindPopup(feature.properties.City_Trans_Buds_Budget);
+                }
+            }],
+        'layer 6': [ L.geoJson.ajax('js/OR_TProj.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng);
+            }
+        }
+        )]
     };
 
     var scenes = {
-        scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7},
+        scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, name: 'Overview'},
         scene2: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1', 'layer 2'], name: "County"},
         scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 5'], name: "City"},
-        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3', 'layer 5'], name: "House Districts"},
-        scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4', 'layer 5'], name: "Senate Districts"}
+        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3', 'layer 6'], name: "House Districts"},
+        scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4', 'layer 6'], name: "Senate Districts"}
     };
 
     $('.main').storymap({
         scenes: scenes,
         layers: layers,
-        legend: true,
+        legend: false,
         scale: true,
         navbar: true,
         createMap: function () {
