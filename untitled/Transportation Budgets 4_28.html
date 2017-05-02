@@ -127,6 +127,16 @@
                 if (feature.properties && feature.properties.City_Trans_Buds_Budget) {
                     layer.bindPopup(feature.properties.City_Trans_Buds_Budget);
                 }
+                var City_Trans_Buds_Budget ={
+                    "type": "Feature",
+                    "properties": {
+                        "instName": instName,
+                        "City_Trans_Buds_Budget": City_Trans_Buds_Budget
+                    }
+                }
+                L.geoJSON(City_Trans_Buds_Budget, {
+                    onEachFeature: onEachFeature
+                })
             }],
         'layer 6': [ L.geoJson.ajax('js/OR_TProj.geojson', {
             pointToLayer: function (feature, latlng) {
