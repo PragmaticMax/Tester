@@ -55,9 +55,9 @@
                 <p>The markers present represent propesed transportation projects. Click a marker to see information on each project. <b>Marker placement is approxamite</b></p>
             </section>
             <section data-scene="scene5">
-            <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
-            <h2>Senate Districts</h2>
-            <p>The markers present represent propesed transportation projects. Click a marker to see information on each project. <b>Marker placement is approxamite</b></p>
+                <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
+                <h2>Senate Districts</h2>
+                <p>The markers present represent propesed transportation projects. Click a marker to see information on each project. <b>Marker placement is approxamite</b></p>
             </section>
         </div>
         <div id="map" class="col-sm-4 col-md-2 sidebar"></div>
@@ -67,20 +67,19 @@
     <div class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></div>
     <!--add a navigation bar-->
     <div class="navbar text-center"></div>
-    </div>
+</div>
 <script type="text/javascript">
     function getColor(County_Trans_Buds_Budget){
         //condition ? valueIfTrue : valueIfFalse
         return  County_Trans_Buds_Budget > 14000000 ? '#00441b' :
-                County_Trans_Buds_Budget > 10000000 ? '#006d2c' :
+            County_Trans_Buds_Budget > 10000000 ? '#006d2c' :
                 County_Trans_Buds_Budget >  7000000 ? '#238b45' :
-                County_Trans_Buds_Budget >  3500000 ? '#41ae76' :
-                County_Trans_Buds_Budget >  2500000 ? '#66c2a4' :
-                County_Trans_Buds_Budget >  1500000 ? '#99d8c9' :
-                County_Trans_Buds_Budget >  1000000 ? '#ccece6' :
-                County_Trans_Buds_Budget >   500000 ? '#e5f5f9' :
-                                                      '#f7fcfd' ;
-
+                    County_Trans_Buds_Budget >  3500000 ? '#41ae76' :
+                        County_Trans_Buds_Budget >  2500000 ? '#66c2a4' :
+                            County_Trans_Buds_Budget >  1500000 ? '#99d8c9' :
+                                County_Trans_Buds_Budget >  1000000 ? '#ccece6' :
+                                    County_Trans_Buds_Budget >   500000 ? '#e5f5f9' :
+                                        '#f7fcfd' ;
     }
     // Set style function that sets fill color property equal to cell tower density
     function style(feature) {
@@ -92,41 +91,36 @@
             color: '#FFFFF'
         };
     }
-
     var counties_choropleth = L.geoJson.ajax('js/OR_CounBud.geojson',
         {
             style: style,
             onEachFeature: function (feature, layer) {
                 //layer.bindTooltip(feature.properties.instName, {permanent: false, direction: 'center'});
                 layer.bindTooltip(feature.properties.County_Trans_Buds_Budget.toString(), {permanent: false, direction: 'center'});
-    }
+            }
         });
-
     var markers = L.geoJson.ajax('js/OR_TProj.geojson',{
         style: style,
         onEachFeature: function (feature, layer) {
             layer.bindPopup(feature.properties.Name_and_Cost)
         }
     })
-
     var cities = L.geoJson.ajax('js/OR_CitBud', {
         style:style,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.City_Trans_Buds_Budget)
+            feature.bindPopup(feature.properties.City_Trans_Buds_Budget)
         }
     })
-
     var counties_choropleth_legend = '<p><b>County Budgets</b></p>' +
         '<i style="background: #edf8e9; opacity: 0.5"></i><p><b>0 - 499,999</b></p>' +
-        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>500000 - 999999</b></p>' +
-        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>1000000 - 1499999</b></p>' +
-        '<i style="background: #a1d99b; opacity: 0.5"></i><p><b>1500000 - 2499999</b></p>' +
-        '<i style="background: #74c476; opacity: 0.5"></i><p><b>2500000 - 3499999</b></p>' +
-        '<i style="background: #31a354; opacity: 0.5"></i><p><b>3500000 - 6999999</b></p>' +
-        '<i style="background: #31a354; opacity: 0.5"></i><p><b>7000000 - 9999999</b></p>' +
-        '<i style="background: #31a354; opacity: 0.5"></i><p><b>10000000 - 13999999</b></p>' +
-        '<i style="background: #006d2c; opacity: 0.5"></i><p><b>14000000+</b></p>';
-
+        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>500,000 - 999,999</b></p>' +
+        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>1,000,000 - 1,499,999</b></p>' +
+        '<i style="background: #a1d99b; opacity: 0.5"></i><p><b>1,500,000 - 2,499,999</b></p>' +
+        '<i style="background: #74c476; opacity: 0.5"></i><p><b>2,500,000 - 3,499,999</b></p>' +
+        '<i style="background: #31a354; opacity: 0.5"></i><p><b>3,500,000 - 6,999,999</b></p>' +
+        '<i style="background: #31a354; opacity: 0.5"></i><p><b>7,000,000 - 9,999,999</b></p>' +
+        '<i style="background: #31a354; opacity: 0.5"></i><p><b>10,000,000 - 13,999,999</b></p>' +
+        '<i style="background: #006d2c; opacity: 0.5"></i><p><b>14,000,000+</b></p>';
     var layers = {
         'layer 1': [counties_choropleth, counties_choropleth_legend],
         'layer 2': [ L.geoJson.ajax('js/OR_CounBud.geojson', {color: 'white', weight: .5}),
@@ -135,18 +129,17 @@
             '<i style="opacity: 0.5"></i><p><b>House Districts</b></p>'],
         'layer 4': [ L.geoJson.ajax('js/OR_SDist.geojson', {color: 'black', weight: .5}),
             '<i style="opacity: 0.5"></i><p><b>Senate Districts</b></p>'],
-        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: '#d95f0e', weight: 1}), cities,],
+        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: '#d95f0e', weight: 1}), cities,
+            '<i style="opacity: 0.5"></i><p><b>Oregon Cities</b></p>'],
         'layer 6': [markers]
     };
-
     var scenes = {
         scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, name: 'Overview'},
         scene2: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1'], name: "County"},
-        scene3: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 5'], name: "City"},
+        scene3: {lat: 44.331264,  lng: -123.0352084, zoom: 9, layers: ['layer 5'], name: "City"},
         scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3', 'layer 6'], name: "House Districts"},
         scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4', 'layer 6'], name: "Senate Districts"}
     };
-
     $('.main').storymap({
         scenes: scenes,
         layers: layers,
