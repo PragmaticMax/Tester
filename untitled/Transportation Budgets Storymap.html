@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="css/storymap.css">
     <!--My CSS-->
     <link rel="stylesheet" type="text/css" href="css/LPRO_Style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <!--add required libraries-->
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
@@ -48,16 +49,17 @@
             <section data-scene="scene3">
                 <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
                 <h2>City Transportation Budgets</h2>
+                <p>Each highlighted area represents the city limits of the corresponding city. Click a city to see its transportation budget. <b>All city limits boundaries are approximate.</b></p>
             </section>
             <section data-scene="scene4">
                 <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
                 <h2>House Districts</h2>
-                <p>The markers present represent propesed transportation projects. Click a marker to see information on each project. <b>Marker placement is approxamite</b></p>
+                <p>The markers present represent propesed transportation projects. Click a marker to see information on each project. <b>Marker placement is approximite</b></p>
             </section>
             <section data-scene="scene5">
                 <h1><img src="img/LPRO Logo no text.png" alt="" style="width:75px;height:48px"/>Legislative Policy and Research Office</h1>
                 <h2>Senate Districts</h2>
-                <p>The markers present represent propesed transportation projects. Click a marker to see information on each project. <b>Marker placement is approxamite</b></p>
+                <p>The markers present represent propesed transportation projects. Click a marker to see information on each project. <b>Marker placement is approximite</b></p>
             </section>
         </div>
         <div id="map" class="col-sm-4 col-md-2 sidebar"></div>
@@ -71,24 +73,24 @@
 <script type="text/javascript">
     function getColor(County_Trans_Buds_Budget){
         //condition ? valueIfTrue : valueIfFalse
-        return  County_Trans_Buds_Budget > 14000000 ? '#00441b' :
-            County_Trans_Buds_Budget > 10000000 ? '#006d2c' :
-                County_Trans_Buds_Budget >  7000000 ? '#238b45' :
-                    County_Trans_Buds_Budget >  3500000 ? '#41ae76' :
-                        County_Trans_Buds_Budget >  2500000 ? '#66c2a4' :
-                            County_Trans_Buds_Budget >  1500000 ? '#99d8c9' :
-                                County_Trans_Buds_Budget >  1000000 ? '#ccece6' :
-                                    County_Trans_Buds_Budget >   500000 ? '#e5f5f9' :
-                                        '#f7fcfd' ;
+        return  County_Trans_Buds_Budget > 14000000 ? '#7f2704' :
+                County_Trans_Buds_Budget > 10000000 ? '#a63603' :
+                County_Trans_Buds_Budget >  7000000 ? '#d94801' :
+                County_Trans_Buds_Budget >  3500000 ? '#f16913' :
+                County_Trans_Buds_Budget >  2500000 ? '#fd8d3c' :
+                County_Trans_Buds_Budget >  1500000 ? '#fdae6b' :
+                County_Trans_Buds_Budget >  1000000 ? '#fdd0a2' :
+                County_Trans_Buds_Budget >   500000 ? '#fee6ce' :
+                                                      '#fff5eb' ;
     }
     // Set style function that sets fill color property equal to cell tower density
     function style(feature) {
         return {
             fillColor: getColor(feature.properties.County_Trans_Buds_Budget),
-            fillOpacity: 0.6,
+            fillOpacity: 0.8,
             weight: 1,
             opacity: 0.3,
-            color: '#FFFFF'
+            color: 'black'
         };
     }
     var counties_choropleth = L.geoJson.ajax('js/OR_CounBud.geojson',
@@ -96,7 +98,9 @@
             style: style,
             onEachFeature: function (feature, layer) {
                 //layer.bindTooltip(feature.properties.instName, {permanent: false, direction: 'center'});
-                layer.bindTooltip(feature.properties.County_Trans_Buds_Budget.toString(), {permanent: false, direction: 'center'});
+                layer.bindTooltip(feature.properties.instName + '<br>' +
+                    feature.properties.County_Trans_Buds_Budget.toString(),
+                    {permanent: false, direction: 'center', className: 'feature-tooltip'});
             }
         });
     var markers = L.geoJson.ajax('js/OR_TProj.geojson',{
@@ -108,19 +112,23 @@
     var cities = L.geoJson.ajax('js/OR_CitBud', {
         style:style,
         onEachFeature: function (feature, layer) {
-            feature.bindPopup(feature.properties.City_Trans_Buds_Budget)
+            feature.bindPopup(feature.properties.instName + '<br>' +
+            feature.properties.City_Trans_Buds_Budget.toString(),{
+                className: 'feature-tooltip'
+            })
         }
     })
     var counties_choropleth_legend = '<p><b>County Budgets</b></p>' +
-        '<i style="background: #edf8e9; opacity: 0.5"></i><p><b>0 - 499,999</b></p>' +
-        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>500,000 - 999,999</b></p>' +
-        '<i style="background: #c7e9c0; opacity: 0.5"></i><p><b>1,000,000 - 1,499,999</b></p>' +
-        '<i style="background: #a1d99b; opacity: 0.5"></i><p><b>1,500,000 - 2,499,999</b></p>' +
-        '<i style="background: #74c476; opacity: 0.5"></i><p><b>2,500,000 - 3,499,999</b></p>' +
-        '<i style="background: #31a354; opacity: 0.5"></i><p><b>3,500,000 - 6,999,999</b></p>' +
-        '<i style="background: #31a354; opacity: 0.5"></i><p><b>7,000,000 - 9,999,999</b></p>' +
-        '<i style="background: #31a354; opacity: 0.5"></i><p><b>10,000,000 - 13,999,999</b></p>' +
-        '<i style="background: #006d2c; opacity: 0.5"></i><p><b>14,000,000+</b></p>';
+        '<i style="background: #fff5eb; opacity: 0.5"></i><p><b>0 - 499,999</b></p>' +
+        '<i style="background: #fee6ce; opacity: 0.5"></i><p><b>500,000 - 999,999</b></p>' +
+        '<i style="background: #fdd0a2; opacity: 0.5"></i><p><b>1,000,000 - 1,499,999</b></p>' +
+        '<i style="background: #fdae6b; opacity: 0.5"></i><p><b>1,500,000 - 2,499,999</b></p>' +
+        '<i style="background: #fd8d3c; opacity: 0.5"></i><p><b>2,500,000 - 3,499,999</b></p>' +
+        '<i style="background: #f16913; opacity: 0.5"></i><p><b>3,500,000 - 6,999,999</b></p>' +
+        '<i style="background: #d94801; opacity: 0.5"></i><p><b>7,000,000 - 9,999,999</b></p>' +
+        '<i style="background: #a63603; opacity: 0.5"></i><p><b>10,000,000 - 13,999,999</b></p>' +
+        '<i style="background: #7f2704; opacity: 0.5"></i><p><b>14,000,000+</b></p>';
+
     var layers = {
         'layer 1': [counties_choropleth, counties_choropleth_legend],
         'layer 2': [ L.geoJson.ajax('js/OR_CounBud.geojson', {color: 'white', weight: .5}),
