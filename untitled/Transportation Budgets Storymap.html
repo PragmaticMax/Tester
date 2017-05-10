@@ -142,14 +142,15 @@
             '<i style="opacity: 0.5"></i><p><b>House Districts</b></p>'],
         'layer 4': [ L.geoJson.ajax('js/OR_SDist.geojson', {color: 'black', weight: .5}),
             '<i style="opacity: 0.5"></i><p><b>Senate Districts</b></p>'],
-        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: '#d95f0e', weight: 1}), cities,
+        'layer 5': [ L.geoJson.ajax('js/OR_CitBud.geojson', {color: '#d95f0e', weight: 1}),
             '<i style="opacity: 0.5"></i><p><b>Oregon Cities</b></p>'],
-        'layer 6': [markers]
+        'layer 6': [markers],
+        'layer 7': [cities]
     };
     var scenes = {
         scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, name: 'Overview'},
         scene2: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1'], name: "County"},
-        scene3: {lat: 44.331264,  lng: -123.0352084, zoom: 9, layers: ['layer 5'], name: "City"},
+        scene3: {lat: 44.331264,  lng: -123.0352084, zoom: 9, layers: ['layer 7'], name: "City"},
         scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3', 'layer 6'], name: "House Districts"},
         scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4', 'layer 6'], name: "Senate Districts"}
     };
