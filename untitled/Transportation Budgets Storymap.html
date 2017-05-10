@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!--My Favicon-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favico.ico" type="image/x-icon">
 
     <!--add required stylesheets-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -114,7 +114,7 @@
             layer.bindPopup(feature.properties.Name_and_Cost)
         }
     })
-    var cities = L.geoJson.ajax('js/OR_CitBud', {
+    var cities = L.geoJson.ajax('js/OR_CitBud.geojson ', {
         style:style,
         onEachFeature: function (feature, layer) {
             layer.bindPopup(feature.properties.instName + '<br>' +
@@ -151,8 +151,8 @@
         scene1: {lat: 43.7380178, lng: -123.5033563, zoom: 7, name: 'Overview'},
         scene2: {lat: 43.7380178, lng: -123.5033563, zoom: 7, layers: ['layer 1'], name: "County"},
         scene3: {lat: 44.331264,  lng: -123.0352084, zoom: 9, layers: ['layer 7'], name: "City"},
-        scene4: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 3', 'layer 6'], name: "House Districts"},
-        scene5: {lat: 44.5701158, lng: -123.2949388, zoom: 7, layers: ['layer 4', 'layer 6'], name: "Senate Districts"}
+        scene4: {layers: ['layer 3', 'layer 6'], name: "House Districts"},
+        scene5: {layers: ['layer 4', 'layer 6'], name: "Senate Districts"}
     };
     $('.main').storymap({
         scenes: scenes,
