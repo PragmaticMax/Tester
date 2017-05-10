@@ -117,7 +117,7 @@
     var cities = L.geoJson.ajax('js/OR_CitBud', {
         style:style,
         onEachFeature: function (feature, layer) {
-            feature.bindPopup(feature.properties.instName + '<br>' +
+            layer.bindPopup(feature.properties.instName + '<br>' +
             feature.properties.City_Trans_Buds_Budget.toString(),{
                 className: 'feature-tooltip'
             })
