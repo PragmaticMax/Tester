@@ -1,2 +1,2 @@
-#Mapbox Project
-##For Geovisual Analytics, GEO 572
+# Mapbox Project
+## For Geovisual Analytics, GEO 572
