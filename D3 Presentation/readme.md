@@ -63,4 +63,4 @@ The **.attr()** command sets the attributes of our D3 objects, such as class, sr
 The **.style()** command allows us to change the CSS of our D3 objects without changing the overall page CSS
 
 ## My quick D3
-[Here is what we can make with these simple instructions](https://github.com/PragmaticMax/Tester/blob/master/D3%20Presentation/D3%20Presentation.html)
+[Here is what we can make with these simple instructions](https://github.com/PragmaticMax/Tester/blob/master/D3%20Presentation/index.html)
