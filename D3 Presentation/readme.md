@@ -18,7 +18,7 @@ An Array is a bracketed list of data.<br> *Examples:*
 ### Objects
 Objects, in contrast, are complex in nature having multidimensional observations. <br>
 *Example:*
-*var fruit = {<br>
+var fruit = {<br>
   kind: "grape"<br>
   color: "red"<br>
   quantity: 12<br>
