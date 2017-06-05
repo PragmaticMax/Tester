@@ -1,8 +1,8 @@
 # Making graphs with D3, DC, and Crossfilter
 ## What are these tools capable of?
-[Examples of D3](https://d3js.org/)
-[Examples of Crossfilter](http://square.github.io/crossfilter/)
-[Examples of DC](https://dc-js.github.io/dc.js/vc/index.html)
+[Examples of D3](https://d3js.org/)<br>
+[Examples of Crossfilter](http://square.github.io/crossfilter/)<br>
+[Examples of DC](https://dc-js.github.io/dc.js/vc/index.html)<br>
 [Examples of All 3 working together](https://cdn.rawgit.com/jakobzhao/storymap/48fb6416/examples/dataInteraction/index.html#L2)
 
 ## Data in D3
