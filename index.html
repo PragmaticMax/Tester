@@ -1,0 +1,1702 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<base href="_w_ef798e84/" />
+    <script type="text/javascript">
+(function() {
+  // http://stackoverflow.com/questions/10964966/detect-ie-version-in-javascript
+  function isIE () {
+    var myNav = navigator.userAgent.toLowerCase();
+    return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+  }
+
+  if (isIE() === 8 || isIE() === 9){
+    // Set an absolute base href.
+    baseURL = document.URL;
+    baseURL = baseURL.substring(0, baseURL.lastIndexOf('/'));
+    document.getElementsByTagName('base')[0].setAttribute('href', baseURL + '/_w_ef798e84/');
+  }
+})();
+</script>
+
+      <script type="text/javascript">
+      var __connect = {
+        shiny: '1.0.3'
+      }
+      </script>
+      
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons">12b282b6c4e1ec3cee386f4ca6165aafc4731a84</script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.12.4];shiny[1.0.3];font-awesome[4.7.0];shinyBS[0.61];bootstrap[3.3.7];selectize[0.11.2];AdminLTE[2.0.6];shinydashboard[0.6.1]</script>
+<script src="shared/json2-min.js"></script>
+<script src="shared/jquery.min.js"></script>
+<link href="shared/shiny.css" rel="stylesheet" />
+<script src="shared/shiny.min.js"></script>
+<link href="shared/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="sbs/shinyBS.css" rel="stylesheet" />
+<script src="sbs/shinyBS.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="shared/bootstrap/shim/html5shiv.min.js"></script>
+<script src="shared/bootstrap/shim/respond.min.js"></script>
+<link href="shared/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
+<!--[if lt IE 9]>
+<script src="shared/selectize/js/es5-shim.min.js"></script>
+<![endif]-->
+<script src="shared/selectize/js/selectize.min.js"></script>
+<link href="AdminLTE-2.0.6/AdminLTE.min.css" rel="stylesheet" />
+<link href="AdminLTE-2.0.6/_all-skins.min.css" rel="stylesheet" />
+<script src="AdminLTE-2.0.6/app.min.js"></script>
+<link href="shinydashboard-0.6.1/shinydashboard.css" rel="stylesheet" />
+<script src="shinydashboard-0.6.1/shinydashboard.min.js"></script>  <title>
+    <a href="http://www.oregon.gov/DHS/BUSINESS-SERVICES/OFRA/Pages/OEDA.aspx">
+      <img src="oeda_wide.png" height="50" width="200"/>
+    </a>
+  </title>
+  <style>
+      @media (min-width: 768px) {
+        .main-header > .navbar {
+          margin-left: 250px;
+        }
+        .main-header .logo {
+          width: 250px;
+        }
+      }
+    </style>
+  <script>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102112861-1', 'auto');
+  ga('send', 'pageview');</script>
+  <style>.shinyjs-hide { display: none !important; }</style>
+  <script>Shiny.addCustomMessageHandler('shinyjs-show', function(params) { shinyjs.debugMessage('shinyjs: calling function "show" with parameters:'); shinyjs.debugMessage(params); shinyjs.show(params);});
+Shiny.addCustomMessageHandler('shinyjs-hide', function(params) { shinyjs.debugMessage('shinyjs: calling function "hide" with parameters:'); shinyjs.debugMessage(params); shinyjs.hide(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggle', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggle" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggle(params);});
+Shiny.addCustomMessageHandler('shinyjs-enable', function(params) { shinyjs.debugMessage('shinyjs: calling function "enable" with parameters:'); shinyjs.debugMessage(params); shinyjs.enable(params);});
+Shiny.addCustomMessageHandler('shinyjs-disable', function(params) { shinyjs.debugMessage('shinyjs: calling function "disable" with parameters:'); shinyjs.debugMessage(params); shinyjs.disable(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggleState', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggleState" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggleState(params);});
+Shiny.addCustomMessageHandler('shinyjs-addClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "addClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.addClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-removeClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "removeClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.removeClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggleClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggleClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggleClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-html', function(params) { shinyjs.debugMessage('shinyjs: calling function "html" with parameters:'); shinyjs.debugMessage(params); shinyjs.html(params);});
+Shiny.addCustomMessageHandler('shinyjs-onevent', function(params) { shinyjs.debugMessage('shinyjs: calling function "onevent" with parameters:'); shinyjs.debugMessage(params); shinyjs.onevent(params);});
+Shiny.addCustomMessageHandler('shinyjs-alert', function(params) { shinyjs.debugMessage('shinyjs: calling function "alert" with parameters:'); shinyjs.debugMessage(params); shinyjs.alert(params);});
+Shiny.addCustomMessageHandler('shinyjs-logjs', function(params) { shinyjs.debugMessage('shinyjs: calling function "logjs" with parameters:'); shinyjs.debugMessage(params); shinyjs.logjs(params);});
+Shiny.addCustomMessageHandler('shinyjs-runjs', function(params) { shinyjs.debugMessage('shinyjs: calling function "runjs" with parameters:'); shinyjs.debugMessage(params); shinyjs.runjs(params);});
+Shiny.addCustomMessageHandler('shinyjs-reset', function(params) { shinyjs.debugMessage('shinyjs: calling function "reset" with parameters:'); shinyjs.debugMessage(params); shinyjs.reset(params);});
+Shiny.addCustomMessageHandler('shinyjs-delay', function(params) { shinyjs.debugMessage('shinyjs: calling function "delay" with parameters:'); shinyjs.debugMessage(params); shinyjs.delay(params);});</script>
+  <script src="shinyjs/shinyjs-default-funcs.js"></script>
+  <script>shinyjs.debug = false;</script>
+
+<script src="__assets__/sockjs-0.3.min.js"></script>
+<script src="__assets__/shiny-server-client.js"></script>
+<script>preShinyInit({reconnect:false,reconnectTimeout:0,disableProtocols:[],transportDebugging:false,token:true,workerId:true,subappTag:true,extendSession:true,fixupInternalLinks:true});</script>
+<link rel="stylesheet" type="text/css" href="__assets__/rstudio-connect.css"/>
+</head>
+
+<body class="skin-green" style="min-height: 611px;">
+<script type="text/javascript" src="/__static__/components/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
+<script type="text/javascript" src="/__static__/frontend/scripts/shinyapps.frame.content.js"></script>
+<script type="text/javascript" src="/__static__/frontend/scripts/shinyapps.js"></script>
+
+  <div class="wrapper">
+    <header class="main-header">
+      <span class="logo">
+        <a href="http://www.oregon.gov/DHS/BUSINESS-SERVICES/OFRA/Pages/OEDA.aspx">
+          <img src="oeda_wide.png" height="50" width="200"/>
+        </a>
+      </span>
+      <nav class="navbar navbar-static-top" role="navigation">
+        <span style="display:none;">
+          <i class="fa fa-bars"></i>
+        </span>
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <style>.main-header {max-height: 60px}</style>
+              <style>.main-header .logo {height: 60px}</style>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <aside class="main-sidebar" data-collapsed="false">
+      <section class="sidebar">
+        <style>.left-side, .main-sidebar {padding-top: 60px}</style>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#shiny-tab-home" data-toggle="tab" data-value="home">
+              <i class="fa fa-home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-disclaimer" data-toggle="tab" data-value="disclaimer">
+              <i class="fa fa-exclamation-triangle"></i>
+              <span>Disclaimer (Start Here)</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-data_in" data-toggle="tab" data-value="data_in">
+              <i class="glyphicon glyphicon-list-alt"></i>
+              <span>Enter family attributes</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-profile" data-toggle="tab" data-value="profile">
+              <i class="fa fa-users"></i>
+              <span>Family Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-graphs" data-toggle="tab" data-value="graphs">
+              <i class="fa fa-bar-chart"></i>
+              <span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-details" data-toggle="tab" data-value="details">
+              <i class="fa fa-search"></i>
+              <span>Benefits &amp; taxes details</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-saved" data-toggle="tab" data-value="saved">
+              <i class="fa fa-floppy-o"></i>
+              <span>Saved data</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </aside>
+    <div class="content-wrapper">
+      <section class="content">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-disclaimer">
+            <br/>
+            <br/>
+            <div class="row">
+              <div id="versionInfo" class="shiny-text-output"></div>
+              <div class="col-sm-8">
+                <div class="box box-solid box-danger">
+                  <div class="box-header">
+                    <h3 class="box-title">Disclaimer</h3>
+                  </div>
+                  <div class="box-body">
+                    <span class="help-block">Read the agreement below and click 'I agree' to unlock the buttons on the Inputs tab.</span>
+                    <h2>Social Policy Simulation Disclaimer</h2>
+                    <br/>
+                    <span style="font-size:1.2em">
+                      <p>The Oregon Social Policy Simulation produces rough estimates of government-funded financial supports available to Oregon families with different characteristics.</p>
+                    </span>
+                    <div style="color:red; font-weight: 500; font-size: 250%; ">This simulation is not to be used to determine eligibility for services.</div>
+                    <span style="font-size:1.2em">
+                      <p>By using this simulation, you agree that estimates are for informational purposes only and do not imply or grant eligibility for benefits and/or tax credits for any individual or household.</p>
+                    </span>
+                    <br/>
+                    <p><span style = "font-size:1.2em">Oregon Enterprise Data Analytics (OEDA) has taken reasonable steps to ensure the accuracy of the information provided through this tool. </span><span style = "font-weight:bold;font-size:1.2em">The simulation is currently in beta-testing so errors in estimates may occur.</span></p> 
+                    <span style="font-size:1.2em">
+                      <p>For taxes and tax credit estimates, this version uses Internal Revenue Codes for tax year 2016. Public assistance program estimates are based on summer 2016 program design. Any subsequent changes in policy or program are not included.</p>
+                    </span>
+                    <span style="font-size:1.2em">
+                      <p>OEDA may amend, update, add, replace, or change all or part of the content of this web application at any time and without prior notice. Any materials using estimates produced through this tool should credit DHS|OHA Oregon Enterprise Data Analytics.</p>
+                    </span>
+                    <br/>
+                    <span style="font-size:1.2em;font-weight:bold">
+                      <p>For more information, contact David Rohrer by email at david.l.rohrer@dhsoha.state.or.us or by phone at 503-945-6923.</p>
+                    </span>
+                    <div class="form-group shiny-input-container">
+                      <div class="checkbox">
+                        <label>
+                          <input id="agree" type="checkbox"/>
+                          <span>I agree</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="modal sbs-modal fade" id="agreeConfirm" tabindex="-1" data-sbs-trigger="confirmAgree">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">You have accepted the terms of the disclaimer</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Begin using the simulation by clicking on "Enter Family Attributes" on the left-side navigation bar.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button id="confirmAgree" type="button" class="btn btn-default action-button">Confirm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-home">
+            <div class="container-fluid">
+              <br/>
+              <br/>
+              <h1 style="font-weight:bold">
+                <span>Oregon Social Policy Simulation</span>
+              </h1>
+              <span style = "color:black;font-size:1.5em">In Oregon and across the nation, low-income families rely on many government programs to help make ends meet, yet decision-makers often lack a way to see how these programs work together. By combining these programs into a single tool, the Oregon Social Policy Simulation gives</span><span style="color:green; font-weight:bold;font-size:1.5em">
+            a holistic view of the financial supports available to Oregon’s families in need.</span>
+              <br/>
+              <div class="row"><span style = "color:black;font-size:1.5em">First, you'll need to enter a few pieces of </span><span style = "color:blue; font-weight:bold;font-size:1.5em">basic household information.</span></div>
+              <br/>
+              <p></p>
+              <div class="row"><div class="col-xs-4"><figure><img src = "icon_family.png", height = 70, width = 70><figcaption style = "color:blue;font-size:1.2em">Number and ages of adults and children</figcaption></figure></div>
+              <div class="col-xs-4"><figure><img src = "icon_wage.png", height = 70, width = 70><figcaption style = "color:blue;font-size:1.2em">Number of hours each adult works and their hourly wage</figcaption></figure></div>
+              <div class = "col-xs-4"><figure><img src = "icon_zip.png", height = 70, width = 70><figcaption style = "color:blue;font-size:1.2em">Zip code where they live</figcaption></figure></div></div>
+              <br/>
+              <div class="row"><span style = "color:black;font-size:1.5em">
+                 Next, you'll save your family profile to see estimates for public assistance benefits and tax credits Oregon families rely on every day.</span></div>
+              <br/>
+              <p></p>
+              <div class="row"><div class = "col-xs-2"><figure><img src = "icon_snap.png", height = 70, width = 70><figcaption style = "color:black;font-size:1.2em">Supplemental Nutrition Assistance Program (food benefits)</figcaption></figure></div>
+              <div class = "col-xs-2"><figure><img src = "icon_erdc.png", height = 70, width = 70><figcaption style = "color:black;font-size:1.2em">Employment Related Day Care</figcaption></figure></div>
+              <div class = "col-xs-2"><figure><img src = "icon_sec8.png", height = 70, width = 70><figcaption style = "color:black;font-size:1.2em">Section 8 Housing Choice Vouchers (rent assistance)</figcaption></figure></div>
+              <div class = "col-xs-2"><figure><img src = "icon_tanf.png", height = 70, width = 70><figcaption style = "color:black;font-size:1.2em">Temporary Assistance to Needy Families (cash assistance)</figcaption></figure></div>
+              <div class = "col-xs-2"><figure><img src = "icon_healthcare.png", height = 70, width = 70><figcaption style = "color:black;font-size:1.2em">Oregon Health Plan & Children’s Health Insurance Program</figcaption></figure></div></div>
+              <div class="row"><h3><span style = "color:black"> What </span><span style = "color:green;font-weight:bold">taxes and tax credits </span><span style = "color:black">are included?</span></h3></div>
+              <div class="row"><div class = "col-xs-3"><figure><img src = "icon_taxCred.png", height = 280, width = 280></figure></div><div class = "col-xs-2"></div><div class = "col-xs-4"><h3><span style = "color:black;font-weight:bold">Taxes</span></h3><li>Payroll taxes</li><li>Federal income taxes</li><li>Oregon income taxes</li><h3><span style = "color:black;font-weight:bold">Tax Credits</span></h3>
+              <li>Federal Earned Income Tax Credit</li><li>Oregon Earned Income Credit</li><li>Federal Child Tax Credit</li><li>Oregon Working Families Dependent Care Credit</li><li>Federal Dependent Care Credit</li><li>Advance Premium Tax Credit</li></div></div>
+              <br/>
+              <span style = "color:black;font-size:1.5em">Then to learn about how life and employment changes affect the resources available to them, you can </span>
+            <span style = "color:goldenrod;font-weight:bold;font-size:1.5em">explore different scenarios</span><span style = "color:black;font-size:1.5em"> such as:</span>
+              <br/>
+              <p></p>
+              <li>Getting a job</li><li>Getting a raise or working more hours</li><li>Having a child</li><li>Moving to a new part of Oregon</li>
+              <br/>
+              <span style = "color:black;font-size:1.5em">As you use the simulation, there are a few things to </span><span style = "color:firebrick;font-weight:bold;font-size:1.5em">keep in mind:</span>
+              <br/>
+              <span style = "color:purple; font-weight:bold;font-size:1.5em">Benefits can vary dramatically</span><span style = "color:black;font-size:1.5em">
+            based on a wide range of household characteristics.
+            To keep the simulation easy to use and understand, we make</span><span style = "color:firebrick;font-weight:bold;font-size:1.5em">
+            several important assumptions:</span>
+              <br/>
+              <p></p>
+              
+               <li>Adults are between 18 and 64 years old</li>
+               <li>Income comes from wages only</li>
+               <li>Everyone is a U.S. citizen</li>
+               <li>No one qualifies as blind or disabled</li>
+               <li>Children are claimed as dependents by the first adult in the household</li>
+               <li>Household is a new applicant</li>
+               <li>And more… (see technical documentation for more details)</li>
+              <br/>
+              <p> </p>
+              <span style = "color:black;font-weight:bold;font-size:1.5em">For more information, contact David Rohrer, Office of Forecasting, Research and Analysis Administrator at david.l.rohrer@dhsoha.state.or.us.</span>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-instructions">
+            <div class="container-fluid">
+              <div id="help" class="shiny-text-output"></div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-data_in">
+            <br/>
+            <br/>
+            <div class="row">
+              <div id="agreeAlert" class="shiny-text-output"></div>
+              <div class="sbs-alert" id="agree_Alert"> </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-warning">
+                  <div class="box-header">
+                    <h3 class="box-title">Messages and Warnings</h3>
+                  </div>
+                  <div class="box-body">
+                    <span class="help-block">This box displays warning messages when they occur.</span>
+                    <pre id="hours1_warning" class="shiny-text-output noplaceholder"></pre>
+                    <pre id="hours2_warning" class="shiny-text-output noplaceholder"></pre>
+                    <pre id="wage1_warning" class="shiny-text-output noplaceholder"></pre>
+                    <pre id="wage2_warning" class="shiny-text-output noplaceholder"></pre>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="box">
+                  <div class="box-header">
+                    <h3 class="box-title">Family attributes</h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box-body">
+                    <div id="agi_ib_out" class="shiny-html-output"></div>
+                    <div id="cityCounty_ib_out" class="shiny-html-output"></div>
+                    <div id="medIncome_ib_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title">Adults</h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box-body">
+                    <div class="form-group shiny-input-container">
+                      <label class="control-label" for="num_adults">Number of adults in household</label>
+                      <div>
+                        <select id="num_adults"><option value="1" selected>1</option>
+<option value="2">2</option></select>
+                        <script type="application/json" data-for="num_adults" data-nonempty="">{}</script>
+                      </div>
+                    </div>
+                    <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('num_adults', 'tooltip', {'placement': 'top', 'trigger': 'hover', 'title': 'Select the number of adults in this profile'})}, 500)});</script>
+                    <div id="fileAs" class="shiny-html-output"></div>
+                    <div id="adultControls" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title">Children</h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box-body">
+                    <div class="form-group shiny-input-container">
+                      <label class="control-label" for="num_child">Number of children in household</label>
+                      <div>
+                        <select id="num_child"><option value="0" selected>0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option></select>
+                        <script type="application/json" data-for="num_child" data-nonempty="">{}</script>
+                      </div>
+                    </div>
+                    <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('num_child', 'tooltip', {'placement': 'top', 'trigger': 'hover', 'title': 'Select the number of children in this profile'})}, 500)});</script>
+                    <div id="childControls" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title">Location</h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box-body">
+                    <div class="form-group shiny-input-container">
+                      <label class="control-label" for="zip">Zip code where the family lives</label>
+                      <div>
+                        <select id="zip" class="form-control"><option value="97001" selected>97001</option>
+<option value="97002">97002</option>
+<option value="97003">97003</option>
+<option value="97004">97004</option>
+<option value="97005">97005</option>
+<option value="97006">97006</option>
+<option value="97007">97007</option>
+<option value="97008">97008</option>
+<option value="97009">97009</option>
+<option value="97010">97010</option>
+<option value="97011">97011</option>
+<option value="97013">97013</option>
+<option value="97014">97014</option>
+<option value="97015">97015</option>
+<option value="97016">97016</option>
+<option value="97017">97017</option>
+<option value="97018">97018</option>
+<option value="97019">97019</option>
+<option value="97020">97020</option>
+<option value="97021">97021</option>
+<option value="97022">97022</option>
+<option value="97023">97023</option>
+<option value="97024">97024</option>
+<option value="97026">97026</option>
+<option value="97027">97027</option>
+<option value="97028">97028</option>
+<option value="97029">97029</option>
+<option value="97030">97030</option>
+<option value="97031">97031</option>
+<option value="97032">97032</option>
+<option value="97033">97033</option>
+<option value="97034">97034</option>
+<option value="97035">97035</option>
+<option value="97036">97036</option>
+<option value="97037">97037</option>
+<option value="97038">97038</option>
+<option value="97039">97039</option>
+<option value="97040">97040</option>
+<option value="97041">97041</option>
+<option value="97042">97042</option>
+<option value="97044">97044</option>
+<option value="97045">97045</option>
+<option value="97048">97048</option>
+<option value="97049">97049</option>
+<option value="97050">97050</option>
+<option value="97051">97051</option>
+<option value="97053">97053</option>
+<option value="97054">97054</option>
+<option value="97055">97055</option>
+<option value="97056">97056</option>
+<option value="97057">97057</option>
+<option value="97058">97058</option>
+<option value="97060">97060</option>
+<option value="97062">97062</option>
+<option value="97063">97063</option>
+<option value="97064">97064</option>
+<option value="97065">97065</option>
+<option value="97067">97067</option>
+<option value="97068">97068</option>
+<option value="97070">97070</option>
+<option value="97071">97071</option>
+<option value="97075">97075</option>
+<option value="97076">97076</option>
+<option value="97077">97077</option>
+<option value="97078">97078</option>
+<option value="97080">97080</option>
+<option value="97086">97086</option>
+<option value="97089">97089</option>
+<option value="97101">97101</option>
+<option value="97102">97102</option>
+<option value="97103">97103</option>
+<option value="97106">97106</option>
+<option value="97107">97107</option>
+<option value="97108">97108</option>
+<option value="97109">97109</option>
+<option value="97110">97110</option>
+<option value="97111">97111</option>
+<option value="97112">97112</option>
+<option value="97113">97113</option>
+<option value="97114">97114</option>
+<option value="97115">97115</option>
+<option value="97116">97116</option>
+<option value="97117">97117</option>
+<option value="97118">97118</option>
+<option value="97119">97119</option>
+<option value="97121">97121</option>
+<option value="97122">97122</option>
+<option value="97123">97123</option>
+<option value="97124">97124</option>
+<option value="97125">97125</option>
+<option value="97127">97127</option>
+<option value="97128">97128</option>
+<option value="97130">97130</option>
+<option value="97131">97131</option>
+<option value="97132">97132</option>
+<option value="97133">97133</option>
+<option value="97134">97134</option>
+<option value="97135">97135</option>
+<option value="97136">97136</option>
+<option value="97137">97137</option>
+<option value="97138">97138</option>
+<option value="97140">97140</option>
+<option value="97141">97141</option>
+<option value="97143">97143</option>
+<option value="97144">97144</option>
+<option value="97145">97145</option>
+<option value="97146">97146</option>
+<option value="97147">97147</option>
+<option value="97148">97148</option>
+<option value="97149">97149</option>
+<option value="97201">97201</option>
+<option value="97202">97202</option>
+<option value="97203">97203</option>
+<option value="97204">97204</option>
+<option value="97205">97205</option>
+<option value="97206">97206</option>
+<option value="97207">97207</option>
+<option value="97209">97209</option>
+<option value="97210">97210</option>
+<option value="97211">97211</option>
+<option value="97212">97212</option>
+<option value="97213">97213</option>
+<option value="97214">97214</option>
+<option value="97215">97215</option>
+<option value="97216">97216</option>
+<option value="97217">97217</option>
+<option value="97218">97218</option>
+<option value="97219">97219</option>
+<option value="97220">97220</option>
+<option value="97221">97221</option>
+<option value="97222">97222</option>
+<option value="97223">97223</option>
+<option value="97224">97224</option>
+<option value="97225">97225</option>
+<option value="97227">97227</option>
+<option value="97228">97228</option>
+<option value="97229">97229</option>
+<option value="97230">97230</option>
+<option value="97231">97231</option>
+<option value="97232">97232</option>
+<option value="97233">97233</option>
+<option value="97236">97236</option>
+<option value="97239">97239</option>
+<option value="97240">97240</option>
+<option value="97242">97242</option>
+<option value="97251">97251</option>
+<option value="97253">97253</option>
+<option value="97254">97254</option>
+<option value="97255">97255</option>
+<option value="97256">97256</option>
+<option value="97258">97258</option>
+<option value="97259">97259</option>
+<option value="97266">97266</option>
+<option value="97267">97267</option>
+<option value="97268">97268</option>
+<option value="97269">97269</option>
+<option value="97271">97271</option>
+<option value="97272">97272</option>
+<option value="97280">97280</option>
+<option value="97281">97281</option>
+<option value="97282">97282</option>
+<option value="97283">97283</option>
+<option value="97286">97286</option>
+<option value="97290">97290</option>
+<option value="97291">97291</option>
+<option value="97292">97292</option>
+<option value="97293">97293</option>
+<option value="97294">97294</option>
+<option value="97296">97296</option>
+<option value="97298">97298</option>
+<option value="97299">97299</option>
+<option value="97301">97301</option>
+<option value="97302">97302</option>
+<option value="97303">97303</option>
+<option value="97304">97304</option>
+<option value="97305">97305</option>
+<option value="97306">97306</option>
+<option value="97307">97307</option>
+<option value="97308">97308</option>
+<option value="97309">97309</option>
+<option value="97310">97310</option>
+<option value="97311">97311</option>
+<option value="97312">97312</option>
+<option value="97313">97313</option>
+<option value="97314">97314</option>
+<option value="97317">97317</option>
+<option value="97321">97321</option>
+<option value="97322">97322</option>
+<option value="97324">97324</option>
+<option value="97325">97325</option>
+<option value="97326">97326</option>
+<option value="97327">97327</option>
+<option value="97328">97328</option>
+<option value="97329">97329</option>
+<option value="97330">97330</option>
+<option value="97331">97331</option>
+<option value="97333">97333</option>
+<option value="97335">97335</option>
+<option value="97336">97336</option>
+<option value="97338">97338</option>
+<option value="97339">97339</option>
+<option value="97341">97341</option>
+<option value="97342">97342</option>
+<option value="97343">97343</option>
+<option value="97344">97344</option>
+<option value="97345">97345</option>
+<option value="97346">97346</option>
+<option value="97347">97347</option>
+<option value="97348">97348</option>
+<option value="97350">97350</option>
+<option value="97351">97351</option>
+<option value="97352">97352</option>
+<option value="97353">97353</option>
+<option value="97355">97355</option>
+<option value="97357">97357</option>
+<option value="97358">97358</option>
+<option value="97360">97360</option>
+<option value="97361">97361</option>
+<option value="97362">97362</option>
+<option value="97364">97364</option>
+<option value="97365">97365</option>
+<option value="97366">97366</option>
+<option value="97367">97367</option>
+<option value="97368">97368</option>
+<option value="97369">97369</option>
+<option value="97370">97370</option>
+<option value="97371">97371</option>
+<option value="97372">97372</option>
+<option value="97373">97373</option>
+<option value="97374">97374</option>
+<option value="97375">97375</option>
+<option value="97376">97376</option>
+<option value="97377">97377</option>
+<option value="97378">97378</option>
+<option value="97380">97380</option>
+<option value="97381">97381</option>
+<option value="97383">97383</option>
+<option value="97384">97384</option>
+<option value="97385">97385</option>
+<option value="97386">97386</option>
+<option value="97388">97388</option>
+<option value="97389">97389</option>
+<option value="97390">97390</option>
+<option value="97391">97391</option>
+<option value="97392">97392</option>
+<option value="97394">97394</option>
+<option value="97396">97396</option>
+<option value="97401">97401</option>
+<option value="97402">97402</option>
+<option value="97403">97403</option>
+<option value="97404">97404</option>
+<option value="97405">97405</option>
+<option value="97406">97406</option>
+<option value="97407">97407</option>
+<option value="97408">97408</option>
+<option value="97409">97409</option>
+<option value="97410">97410</option>
+<option value="97411">97411</option>
+<option value="97412">97412</option>
+<option value="97413">97413</option>
+<option value="97414">97414</option>
+<option value="97415">97415</option>
+<option value="97416">97416</option>
+<option value="97417">97417</option>
+<option value="97419">97419</option>
+<option value="97420">97420</option>
+<option value="97423">97423</option>
+<option value="97424">97424</option>
+<option value="97425">97425</option>
+<option value="97426">97426</option>
+<option value="97427">97427</option>
+<option value="97428">97428</option>
+<option value="97429">97429</option>
+<option value="97430">97430</option>
+<option value="97431">97431</option>
+<option value="97432">97432</option>
+<option value="97433">97433</option>
+<option value="97434">97434</option>
+<option value="97435">97435</option>
+<option value="97436">97436</option>
+<option value="97437">97437</option>
+<option value="97438">97438</option>
+<option value="97439">97439</option>
+<option value="97440">97440</option>
+<option value="97441">97441</option>
+<option value="97442">97442</option>
+<option value="97443">97443</option>
+<option value="97444">97444</option>
+<option value="97446">97446</option>
+<option value="97447">97447</option>
+<option value="97448">97448</option>
+<option value="97449">97449</option>
+<option value="97450">97450</option>
+<option value="97451">97451</option>
+<option value="97452">97452</option>
+<option value="97453">97453</option>
+<option value="97454">97454</option>
+<option value="97455">97455</option>
+<option value="97456">97456</option>
+<option value="97457">97457</option>
+<option value="97458">97458</option>
+<option value="97459">97459</option>
+<option value="97460">97460</option>
+<option value="97461">97461</option>
+<option value="97462">97462</option>
+<option value="97463">97463</option>
+<option value="97464">97464</option>
+<option value="97465">97465</option>
+<option value="97466">97466</option>
+<option value="97467">97467</option>
+<option value="97468">97468</option>
+<option value="97469">97469</option>
+<option value="97470">97470</option>
+<option value="97471">97471</option>
+<option value="97472">97472</option>
+<option value="97473">97473</option>
+<option value="97476">97476</option>
+<option value="97477">97477</option>
+<option value="97478">97478</option>
+<option value="97479">97479</option>
+<option value="97480">97480</option>
+<option value="97481">97481</option>
+<option value="97482">97482</option>
+<option value="97484">97484</option>
+<option value="97486">97486</option>
+<option value="97487">97487</option>
+<option value="97488">97488</option>
+<option value="97489">97489</option>
+<option value="97490">97490</option>
+<option value="97491">97491</option>
+<option value="97492">97492</option>
+<option value="97493">97493</option>
+<option value="97494">97494</option>
+<option value="97495">97495</option>
+<option value="97496">97496</option>
+<option value="97497">97497</option>
+<option value="97498">97498</option>
+<option value="97499">97499</option>
+<option value="97501">97501</option>
+<option value="97502">97502</option>
+<option value="97503">97503</option>
+<option value="97504">97504</option>
+<option value="97520">97520</option>
+<option value="97522">97522</option>
+<option value="97523">97523</option>
+<option value="97524">97524</option>
+<option value="97525">97525</option>
+<option value="97526">97526</option>
+<option value="97527">97527</option>
+<option value="97528">97528</option>
+<option value="97530">97530</option>
+<option value="97531">97531</option>
+<option value="97532">97532</option>
+<option value="97533">97533</option>
+<option value="97534">97534</option>
+<option value="97535">97535</option>
+<option value="97536">97536</option>
+<option value="97537">97537</option>
+<option value="97538">97538</option>
+<option value="97539">97539</option>
+<option value="97540">97540</option>
+<option value="97541">97541</option>
+<option value="97543">97543</option>
+<option value="97544">97544</option>
+<option value="97601">97601</option>
+<option value="97602">97602</option>
+<option value="97603">97603</option>
+<option value="97604">97604</option>
+<option value="97620">97620</option>
+<option value="97621">97621</option>
+<option value="97622">97622</option>
+<option value="97623">97623</option>
+<option value="97624">97624</option>
+<option value="97625">97625</option>
+<option value="97626">97626</option>
+<option value="97627">97627</option>
+<option value="97630">97630</option>
+<option value="97632">97632</option>
+<option value="97633">97633</option>
+<option value="97634">97634</option>
+<option value="97635">97635</option>
+<option value="97636">97636</option>
+<option value="97637">97637</option>
+<option value="97638">97638</option>
+<option value="97639">97639</option>
+<option value="97640">97640</option>
+<option value="97641">97641</option>
+<option value="97701">97701</option>
+<option value="97702">97702</option>
+<option value="97703">97703</option>
+<option value="97707">97707</option>
+<option value="97708">97708</option>
+<option value="97709">97709</option>
+<option value="97710">97710</option>
+<option value="97711">97711</option>
+<option value="97712">97712</option>
+<option value="97720">97720</option>
+<option value="97721">97721</option>
+<option value="97722">97722</option>
+<option value="97730">97730</option>
+<option value="97731">97731</option>
+<option value="97732">97732</option>
+<option value="97733">97733</option>
+<option value="97734">97734</option>
+<option value="97735">97735</option>
+<option value="97736">97736</option>
+<option value="97737">97737</option>
+<option value="97738">97738</option>
+<option value="97739">97739</option>
+<option value="97740">97740</option>
+<option value="97741">97741</option>
+<option value="97742">97742</option>
+<option value="97750">97750</option>
+<option value="97751">97751</option>
+<option value="97752">97752</option>
+<option value="97753">97753</option>
+<option value="97754">97754</option>
+<option value="97756">97756</option>
+<option value="97758">97758</option>
+<option value="97759">97759</option>
+<option value="97760">97760</option>
+<option value="97761">97761</option>
+<option value="97801">97801</option>
+<option value="97810">97810</option>
+<option value="97812">97812</option>
+<option value="97813">97813</option>
+<option value="97814">97814</option>
+<option value="97817">97817</option>
+<option value="97818">97818</option>
+<option value="97819">97819</option>
+<option value="97820">97820</option>
+<option value="97821">97821</option>
+<option value="97822">97822</option>
+<option value="97823">97823</option>
+<option value="97824">97824</option>
+<option value="97825">97825</option>
+<option value="97826">97826</option>
+<option value="97827">97827</option>
+<option value="97828">97828</option>
+<option value="97830">97830</option>
+<option value="97831">97831</option>
+<option value="97833">97833</option>
+<option value="97834">97834</option>
+<option value="97835">97835</option>
+<option value="97836">97836</option>
+<option value="97837">97837</option>
+<option value="97838">97838</option>
+<option value="97839">97839</option>
+<option value="97840">97840</option>
+<option value="97841">97841</option>
+<option value="97842">97842</option>
+<option value="97843">97843</option>
+<option value="97844">97844</option>
+<option value="97845">97845</option>
+<option value="97846">97846</option>
+<option value="97848">97848</option>
+<option value="97850">97850</option>
+<option value="97856">97856</option>
+<option value="97857">97857</option>
+<option value="97859">97859</option>
+<option value="97861">97861</option>
+<option value="97862">97862</option>
+<option value="97864">97864</option>
+<option value="97865">97865</option>
+<option value="97867">97867</option>
+<option value="97868">97868</option>
+<option value="97869">97869</option>
+<option value="97870">97870</option>
+<option value="97871">97871</option>
+<option value="97872">97872</option>
+<option value="97873">97873</option>
+<option value="97874">97874</option>
+<option value="97875">97875</option>
+<option value="97876">97876</option>
+<option value="97877">97877</option>
+<option value="97880">97880</option>
+<option value="97882">97882</option>
+<option value="97883">97883</option>
+<option value="97884">97884</option>
+<option value="97885">97885</option>
+<option value="97886">97886</option>
+<option value="97901">97901</option>
+<option value="97902">97902</option>
+<option value="97903">97903</option>
+<option value="97904">97904</option>
+<option value="97905">97905</option>
+<option value="97906">97906</option>
+<option value="97907">97907</option>
+<option value="97908">97908</option>
+<option value="97909">97909</option>
+<option value="97910">97910</option>
+<option value="97911">97911</option>
+<option value="97913">97913</option>
+<option value="97914">97914</option>
+<option value="97917">97917</option>
+<option value="97918">97918</option>
+<option value="97919">97919</option>
+<option value="97920">97920</option></select>
+                        <script type="application/json" data-for="zip" data-eval="[&quot;onInitialize&quot;]">{"placeholder":"Select or type a zip code","onInitialize":"function() { this.setValue(\"\"); }"}</script>
+                      </div>
+                    </div>
+                    <div class="form-group shiny-input-container">
+                      <label class="control-label" for="bedrooms">Number of bedrooms</label>
+                      <div>
+                        <select id="bedrooms"><option value="1" selected>1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option></select>
+                        <script type="application/json" data-for="bedrooms" data-nonempty="">{}</script>
+                      </div>
+                    </div>
+                    <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('bedrooms', 'tooltip', {'placement': 'top', 'trigger': 'hover', 'title': 'Select the number of bedrooms in the residence.'})}, 500)});</script>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="box box-warning">
+                  <div class="box-header">
+                    <h3 class="box-title">Save family attributes</h3>
+                  </div>
+                  <div class="box-body">
+                    <span class="help-block">Enter a name for the example profile then click the ‘Save family profile’ button to calculate estimates based on the family’s attributes. You can save estimates for multiple family profiles for comparison. We recommend limiting the number of profiles to two for easier interpretation.</span>
+                    <div class="form-group shiny-input-container">
+                      <label for="exampleName">Name this saved example</label>
+                      <input id="exampleName" type="text" class="form-control" value="" placeholder="e.x., &quot;Portland single parent&quot;"/>
+                    </div>
+                    <button id="save-inputs" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-floppy-o"></i>
+                      Save family profile
+                    </button>
+                    <br/>
+                    <p> </p>
+                    <button id="reset.inputs" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-undo"></i>
+                      Reset inputs
+                    </button>
+                    <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('save-inputs', 'tooltip', {'placement': 'right', 'trigger': 'hover', 'title': 'This will save your scenario for comparison.'})}, 500)});</script>
+                    <p>  </p>
+                    <div id="numSaved_ib_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-profile">
+            <br/>
+            <br/>
+            <div id="profileAlert" class="shiny-text-output"></div>
+            <div class="sbs-alert" id="profile_Alert"> </div>
+            <div class="row">
+              <div class="col-sm-10">
+                <div class="box">
+                  <div class="box-body">
+                    <h3>Family profile for the most recent example saved on the "Enter family attributes" page.</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title">Family attributes</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="famAttHelp_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="famAttHelp" tabindex="-1" data-sbs-trigger="famAttHelp_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Family attributes</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>This box shows the most recent attributes saved on the “Enter family attributes” page.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="inputsTableUI" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-warning">
+                  <div class="box-header">
+                    <h3 class="box-title">Basic household characteristics</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="bhcHelp_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="bhcHelp" tabindex="-1" data-sbs-trigger="bhcHelp_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Basic household characteristics</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p><span style = font-weight:bold>Household size</span><span> is the number of adults and children added together for the most recently saved family profile.</span></p>
+                            <p><span style = font-weight:bold>Monthly income</span><span> is the total amount earned each month by adults in the family before any taxes or deductions.</span></p>
+                            <p><span>To calculate monthly income for each adult, we first multiply the number of hours worked per week by 4.34524 to get the number of hours worked each month.  Then we multiply by the hourly wage. Each adult's monthly income is added together to get the family's monthly income.</span></p>
+                            <p><span style = font-weight:bold>Annual income</span><span> is the total amount earned each year by adults in the family before any taxes or deductions. This is also known as "gross income. To calculate annual income we multiply the family's monthly income by twelve."</span></p>
+                            <p><span style = font-weight:bold>Percent of Federal Poverty Level</span><span> is a measure of how the family's income compares to the 2016 Federal Poverty Level for that household size.
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="familyTable_profile_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-warning">
+                  <div class="box-header">
+                    <h3 class="box-title">Monthly expenses</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="mthExp_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="mExpHelp" tabindex="-1" data-sbs-trigger="mthExp_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Monthly expenses</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p><span style = font-weight:bold>Health insurance premium</span><span> is the cost of a benchmark health insurance plan from the Health Insurance Marketplace for all family members who do not qualify for the Oregon Health Plan. Benchmark plans are the second lowest cost silver health insurance plan available for that individual based on age and location.</span></p>
+                            <p><span style = font-weight:bold>Childcare</span><span> is the amount paid each month for childcare at a certified childcare center, with rates adjusted for the age of the child. Children age 12 and older are assumed not to need childcare. We assume the amount of childcare needed is equal to the number of hours when all adults are working, assuming the adults' work schedules overlap, plus 25% for breaks and lunches.</span></p>
+                            <p><span style = font-weight:bold>Rent & utilities</span><span> are the Fair Market Rent for rental units where the family lives and with the selected number of bedrooms.</span></p>
+                            <p><span>Fair Market Rents (FMR) represent gross rent estimates that include rent and tenant-paid utilities set as the 40th percentile rent (the dollar amount below which 40% of standard quality rental units are rented). Utilities included in Fair Market Rents are electricity, gas, water and sewer, and trash removal. Telephone service is not included.</span></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="help-block">Expenses are estimated based on the family attributes, including where the family lives and the number of children and adults in the household.</span>
+                    <div id="expensesTable_profile_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-warning">
+                  <div class="box-header">
+                    <h3 class="box-title">Taxes (monthly averages)</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="taxHelp_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="taxHelp" tabindex="-1" data-sbs-trigger="taxHelp_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Taxes</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>This box shows taxes for the entire household. Though most people pay income taxes once a year, all taxes are displayed as monthly averages (annual taxes divided by twelve) to match how monthly expenses and benefits are displayed.</p>
+                            <p><span style = font-weight:bold>Federal income taxes</span><span> is the amount of federal income tax owed by the entire family after the Child Tax Credit, Dependent Care Credit, and Earned Income Tax Credit are applied.</span></p>
+                            <p><span style = font-weight:bold>State income taxes</span><span> is the amount of Oregon income tax owed by the entire family after the Working Families Dependent Care Credit and Oregon Earned Income Credit are applied.</span></p>
+                            <p><span style = font-weight:bold>Payroll taxes</span><span> is the amount paid by the employee (typically deducted from their wages at each pay period) for social insurance programs, such as Social Security and Medicare. Payroll taxes are also known as FICA taxes, standing for Federal Insurance Contribution Act. They are calculated as 7.65% of monthly income.</span></p>
+                            <p><span style = font-weight:bold>Total taxes</span><span> is federal income taxes, state income taxes, and payroll taxes added together.</span></p>
+                            <p><span style = font-weight:bold>Filing status</span><span> shows how the family filed their taxes based on marital status, presence of children in the household, and how income is distributed between the adults. The simulation assumes that if the adults are not married, that</span><span style = font-weight:bold> Adult #1</span><span> claims all children in the household as dependents.</span></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="help-block">Federal and state income taxes and payroll taxes for the entire household. Though income taxes are typically paid once a year, the values shown are monthly averages.</span>
+                    <div id="taxTable_profile_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-info">
+                  <div class="box-header">
+                    <h3 class="box-title">Refundable tax credits (monthly averages)</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="creditHelp_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="creditHelp" tabindex="-1" data-sbs-trigger="creditHelp_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Tax credits</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p><span>This box shows refundable tax credits for the entire household. Though most people receive a lump sum once a year, the values shown are monthly averages.</span></p>
+                   <p><span style="font-weight: bold">Earned Income Tax Credit</span>
+                   <span> is the amount of federal Earned Income Tax Credit the family is eligible for. The amount the family receives in a refund depends on federal income taxes owed and eligibility for other refundable tax credits.</span></p>
+                   <p><span style="font-weight: bold">Oregon Earned Income Credit</span>
+                   <span> is the amount of Oregon Earned Income Credit the family is eligible for. This credit is equal to 8% of the family’s federal Earned Income Tax Credit. The amount the family receives in a refund depends on the amount of Oregon income taxes owed and eligibility for other refundable tax credits.</span></p>
+                            <p><span style="font-weight: bold">Advance Premium Tax Credit</span><span> is a refundable tax credit designed to help eligible individuals and families afford health insurance. This credit is estimated for family members who are not eligible for the Oregon Health Plan through Medicaid and/or the Children's Health Insurance Program (CHIP).  It also assumes working adults do not have access to a job-based health insurance plan and instead purchases a benchmark health insurance plan from the Health Insurance Marketplace. Benchmark plans are the second lowest cost silver health insurance plan available for that individual.  </span></p>
+                   <p><span>Recipients of the APTC can choose to have the credit paid directly to their insurance company each month to lower their monthly payments or they can choose to get the credit when they file their tax return for the year.</span></p>
+                            <p><span style="font-weight: bold">Working Families Dependent Care Credit</span>
+                   <span> is a refundable tax credit for employment-related childcare expenses equal to a percentage of those expenses based on the families’ Federal Poverty Level and the age of the youngest child. </span></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="help-block">Federal and state tax credits for the entire household. Though some tax credits are received monthly and others in a lump sum once a year, values shown are monthly averages.</span>
+                    <div id="creditTable_profile_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-success">
+                  <div class="box-header">
+                    <h3 class="box-title">Benefits</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="benefitHelp_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="benefitHelp" tabindex="-1" data-sbs-trigger="benefitHelp_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Benefits</h4>
+                          </div>
+                          <div class="modal-body"><p><span style="font-weight: bold">Adults covered by Oregon Health Plan</span>
+                         <span> shows whether or not both adults qualify for the Oregon Health Plan based on the family's Federal Poverty Level. </span></p>
+                         <p><span style="font-weight: bold">Adult #1/#2 covered by the Oregon Health Plan</span>
+                         <span> shows whether or not each adult qualifies for the Oregon Health Plan. Eligibility is based on the Federal Poverty Level of the tax filing group, so in cases where the adults file taxes seperately, one adult may be eligible and the other ineligible.</span></p>
+                         <p><span style="font-weight: bold">Children covered by Oregon Health Plan</span><span> shows whether or not the children qualify for the Oregon Health Plan either through Medicaid when the tax filing group's income is below 133% of the Federal Poverty Level or through the Children's Health Insurance Program (CHIP) when income is between 133% and 300% of the Federal Poverty Level.</span></p>
+                         <p><span style="font-weight: bold">Supplemental Nutrition Assistance Program (SNAP)</span><span> shows the amount of food benefits the family is eligible for each month. These benefits can be used to help pay for foods for the household to eat, but cannot be used to buy vitamins, household supplies (like soap or paper products), or food that will be eaten in the store or is a hot food.</span></p>
+                         <p><span style="font-weight: bold">Temporary Assistance for Needy Families (TANF)</span>
+	                       <span> shows cash assistance the family is elligible for each month to help meet basic needs such as food, clothing, shelter, and utilities. TANF is available to very low-income families with children and also provides services to prepare adults for the workforce and help them find employment. TANF also provides childcare at no charge for time spent participating in approved activities, such as working or looking for work.</span></p>
+	                       <p><span style="font-weight: bold">Section 8 Housing Choice Voucher</span><span> shows rental assistance the family would be eligible for each month to help them pay for a dwelling on the private market. Rental assistance is paid directly to the landlord on behalf of the tenant and is equal to rent minus 30% of the family's monthly income. To be eligible, the family's income may not exceed 50% of the median income where the family lives (county or metropolitan area).</span></p>
+	                        <p><span style="font-weight: bold">Employment Related Day Care (ERDC)</span>
+	                        <span> is the subsidy the family would be eligible for each month to pay for childcare while they are doing work-related activities, such as working, looking for work, or going to school to get a degree. Childcare subsidies are paid directly to childcare providers on behalf of the family. ERDC is available to families with incomes at or below 185% of the Federal Poverty Level and where each adult receives income from employment or is a student (along with other eligibility requirements).</span></p>
+	                        <p><span>Subsidy estimates are based on the</span><span style="font-style: italic"> higher end</span><span> of child care costs as it assumes adults' schedules overlap and children receive care in the most expensive setting. Estimates for authorized childcare hours are equal to the number of hours worked by the adult with the fewest hours plus 25%.</span></p></div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="help-block">Benefits are estimated based on the family attributes and assumes family members meet other eligibility requirements. These estimates also assume no one in the household qualifies as blind or disabled.</span>
+                    <div id="benefitsTable_profile_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-graphs">
+            <br/>
+            <br/>
+            <div class="container-fluid">
+              <span class="help-block">First click the 'Prepare data' button, then click 'Show graph.'</span>
+              <div class="row">
+                <button id="tidyPlot" type="button" class="btn btn-default action-button">
+                  <i class="fa fa-cog"></i>
+                  Prepare data
+                </button>
+                <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('tidyPlot', 'tooltip', {'placement': 'bottom', 'trigger': 'hover', 'title': 'Press this button to prepare data for graphing. It must be pressed after any new data has been saved.'})}, 500)});</script>
+                <button id="showgraphs" type="button" class="btn btn-default action-button">
+                  <i class="fa fa-bar-chart"></i>
+                  Show graph
+                </button>
+                <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('showgraphs', 'tooltip', {'placement': 'bottom', 'trigger': 'hover', 'title': 'Press this button to draw the graph.'})}, 500)});</script>
+                <br/>
+                <p> </p>
+                <div id="selectGraph" class="form-group shiny-input-radiogroup shiny-input-container">
+                  <label class="control-label" for="selectGraph">Select graph to display</label>
+                  <div class="shiny-options-group">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="selectGraph" value="resExp" checked="checked"/>
+                        <span>Monthly Resources &amp; Expenses</span>
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="selectGraph" value="taxCred"/>
+                        <span>Taxes &amp; Credits</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('resExp', 'tooltip', {'placement': 'right', 'trigger': 'hover', 'title': 'Show a graph comparing resources and expenses.'})}, 500)});</script>
+                <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('taxCred', 'tooltip', {'placement': 'bottom', 'trigger': 'hover', 'title': 'Show a graph detailing taxes and credits only.'})}, 500)});</script>
+                <button id="recallInputs_btn" type="button" class="btn btn-default action-button">
+                  <i class="fa fa-users"></i>
+                  Show family attributes
+                </button>
+                <div class="modal sbs-modal fade" id="recallInputs" tabindex="-1" data-sbs-trigger="recallInputs_btn">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                          <span>&times;</span>
+                        </button>
+                        <h4 class="modal-title">Saved Examples</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div id="recallInputs_tbl_out" class="shiny-html-output"></div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="box box-primary" style="height: 700px">
+                    <div class="box-body">
+                      <div id="plot_out" class="shiny-html-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div id="dynamicTables1" class="shiny-html-output"></div>
+                <div id="dynamicTables2" class="shiny-html-output"></div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-details">
+            <br/>
+            <br/>
+            <div class="row">
+              <div class="col-sm-10">
+                <div class="box">
+                  <div class="box-body">
+                    <h3>A deeper look into how estimates are calculated.</h3>
+                    <h4>Like the Family profile, these details are for the most recent example saved on the "Enter family attributes" page.</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title">Family attributes</h3>
+                  </div>
+                  <div class="box-body">
+                    <div id="inputsTableUI_det" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-success">
+                  <div class="box-header">
+                    <h3 class="box-title">Supplemental Nutrition Assistance Program (SNAP)</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="SNAP_det_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="snapDetHelp" tabindex="-1" data-sbs-trigger="SNAP_det_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Supplemental Nutrition Assistance Program (SNAP)</h4>
+                          </div>
+                          <div class="modal-body"><p><span style="font-weight: bold">Need group size</span><span> is the number of individuals in the household eligible for SNAP benefits. This number determines the payment standard and standard deduction amounts. For this simulation, the need group size is equal to household size.</span></p>
+<p><span style="font-weight: bold">Countable income limit</span><span> is the maximum amount of countable income a family can have and be eligible for food benefits. Since families in this simulation are assumed to only have earned income through wages, this is the maximum monthly income a family can have be eligible for SNAP. The countable income limit is based on the need group size.</span></p>
+                         <p><span style="font-weight: bold">Adjustable income limit</span><span> is the maximum amount of income a family can have after adjustments and deductions and be eligible for food benefits.</span></p>
+                         <p><span style="font-weight: bold">Adjusted income limit</span><span> is the maximum amount of income a family can have after adjustments and deductions and be eligible for food benefits.</span></p>
+                         <p><span style="font-weight: bold">Standard deduction</span><span> is an amount deducted from the family's "Adjusted income (no deductions)" amount based on the need group size.</span></p>
+                         <p><span style="font-weight: bold">Dependent care deduction</span><span> is the amount deducted from the family's "Adjusted income (no deductions)" for their monthly childcare expenses.  Childcare expenses only include those paid for by the family, so if the family qualifies for ERDC this amount is equal to their copayment.</span></p>
+                         <p><span style="font-weight: bold">Shelter deduction</span><span> is the amount deducted from the family's "Adjusted income (no deductions)" for housing and utilities costs. It is equal to the Fair Market Rent plus a $60 telephone standard utility deduction minus 50% of the adjusted income (including standard and dependent care deductions). The maximum shelter deduction is $490.</span></p>
+                         <p><span style="font-weight: bold">Adjusted income</span><span> is the family's monthly income after adjustments and deductions. This amount must be below the "Adjusted income limit" to qualify for the Supplemental Nutrition Assistance Program.</span></p>
+                         <p><span style="font-weight: bold">Payment standard</span><span> shows the amount of food benefits the family is eligible for each month. These benefits can be used to help pay for foods for the household to eat, but cannot be used to buy vitamins, household supplies (like soap or paper products), or food that will be eaten in the store or is a hot food.</span>
+                         </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="snapTable_detailed_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-success">
+                  <div class="box-header">
+                    <h3 class="box-title">Temporary Assistance for Needy Families (TANF)</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="TANF_det_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="tanfDetHelp" tabindex="-1" data-sbs-trigger="TANF_det_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Temporary Assistance for Needy Families (TANF)</h4>
+                          </div>
+                          <div class="modal-body"><p><span style="font-weight: bold">Need group size</span><span> is the number of individuals in the household eligible for TANF benefits. This number determines the payment standard and standard deduction amounts. For this simulation, the need group size is equal to household size.</span></p>
+<p><span style="font-weight: bold">Countable income limit</span><span> is the maximum amount of countable income a family can have and stay eligible for TANF benefits. Since families in this simulation are assumed to only have earned income through wages, this is the maximum monthly income a family can have be eligible for TANF. The countable income limit is based on the need group size.</span></p>
+                 <p><span style="font-weight: bold">Adjusted income limit</span><span> is the maximum amount of income a family can have after adjustments and be eligible for TANF benefits. Adjusted income is equal to 50% of the family's monthly income.</span></p>
+                 <p><span style="font-weight: bold">Payment standard</span><span> is the maximum cash assistance available based on the need group size. Fifty percent of the family's monthly income is subtracted from the payment standard to determine the benefit amount.</span></p>
+                 <p><span style="font-weight: bold">Benefit amount</span><span> shows the amount of cash assistance the family is eligible for each month.</span></p>
+                 </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="tanfDetailedUI" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-success">
+                  <div class="box-header">
+                    <h3 class="box-title">Employment Related Day Care (ERDC)</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="ERDC_det_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="erdcDetHelp" tabindex="-1" data-sbs-trigger="ERDC_det_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Employment Related Day Care (ERDC)</h4>
+                          </div>
+                          <div class="modal-body"><p><span style="font-weight: bold">Childcare cost</span><span> is the full cost for childcare each month at a certified childcare center, with rates adjusted for the age(s) of the child(ren). Children age 12 and older are assumed not to need childcare. We assume the amount of childcare needed is equal to the number of hours when all adults are working, assuming the adults' work schedules overlap, plus 25% for breaks and lunches.</span></p>
+<p><span style="font-weight: bold">Authorized hours</span><span> is the number of hours that can be subsidized through the Employment-Related Day Care program. Authorized hours are equal to the number of hours when all adults are working, assuming the adults' work schedules overlap, plus 25% for breaks and lunches.</span></p>
+                         <p><span style="font-weight: bold">ERDC region</span><span> is the “Group Area” for the zip code where the family lives. Group Areas are assigned to zip codes and are used to determine the maximum childcare rate covered by the Employment-Related Day Care program. Group Area A has the highest rates while Group Area C has the lowest rates.</span></p>
+                         <p><span style="font-weight: bold">Copay amount</span><span> is the amount paid by the family toward their monthly childcare costs if they qualify for the Employment-Related Day Care subsidy. It is a percentage of monthly income that gradually increases as income goes up.</span></p>
+                         <p><span style="font-weight: bold">Subsidy amount</span><span> is the amount paid by the Employment-Related Day Care program directly to the childcare provider on behalf of the family. The subsidy is equal to monthly childcare costs minus the family’s copayment.</span></p>
+                         </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="erdcDetailedUI" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-warning">
+                  <div class="box-header">
+                    <h3 class="box-title">Federal taxes</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="FEDTAX_det_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="fedtaxDetHelp" tabindex="-1" data-sbs-trigger="FEDTAX_det_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Federal taxes</h4>
+                          </div>
+                          <div class="modal-body"><p><span>To calculate tax deductions and credits, the simulation assumes the children can be claimed as dependents and that they are all claimed as dependents on the same return. If the adults file separately, each of the fields defined below will show for each adult.
+Tax estimates also assume the household income is from wages only, not investments or self-employment.
+                         The model does not include the phase out of the personal exemption that begins at an income of $259,400. For this and other reasons, this simulation should not be used to estimate taxes for households with high incomes as they would be considerably inaccurate.</span></p>
+                         <p><span style="font-weight: bold">Adjusted gross income</span><span> is equal to the family's monthly income. </span></p>
+                         <p><span style="font-weight: bold">Filing statuses</span><span> shows how the family filed their taxes based on marital status, presence of children in the household, and how income is distributed between the adults. The simulation assumes that if the adults are not married, that the adult with the highest earnings claims all children in the household as dependents.</span></p>
+                         <p><span style="font-weight: bold">Standard deduction</span><span> shows how the family filed their taxes based on marital status, presence of children in the household, and how income is distributed between the adults. The simulation assumes that if the adults are not married, that </span><span style = "font-weight:bold">Adult #1 </span><span>claims all children in the household as dependents.</span></p>
+                         <p><span style="font-weight: bold">Taxable income</span><span> is the amount of the family's income used to calculate federal income tax. For this simulation, we subtract personal exemptions and the standard deduction from the adjusted gross income to get the family's taxable income.</span></p>
+                         <p><span style="font-weight: bold">Gross tax</span><span> is the amount of federal income tax the family would owe without applying any non-refundable tax credits (Child Tax Credit and Dependent Care Credit).</span></p>
+                         <p><span style="font-weight: bold">Child credit amount</span><span> shows how much of the Child Tax Credit the family receives. The Child Tax Credit is a non-refundable tax credit up to $1,000 per qualifying child under the age of 17 is available depending on income. </span></p>
+                         <p><span>The credit phases out beginning at certain modified adjusted gross income amounts; for married taxpayers filing a joint return the credit begins to phase-out at $110,000 and for Head of Household filers the phase-out begins at $75,000. These phase-outs are not included in the model. For this and other reasons, credit estimates would be inaccurate for households with high incomes. </span></p>
+                         <p><span style="font-weight: bold">Dependent care credit</span><span> shows how much of the Dependent Care Credit the family receives after applying the Child Tax Credit to the gross tax amount. The Dependent Care Credit is a non-refundable tax credit available to households with dependents under age 13 for whom the household pays for care in order to look for or go to work. The credit is equal to a percentage of childcare expenses starting at 35% and declining with higher income to 20%.</span></p>
+                         <p><span style="font-weight: bold">Net tax</span><span> is the amount of federal income taxes the family owes after applying refundable tax credits. </span></p>
+                         </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="fedTaxTable_detailed_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-warning">
+                  <div class="box-header">
+                    <h3 class="box-title">State Taxes</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="STATETAX_det_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="statetaxDetHelp" tabindex="-1" data-sbs-trigger="STATETAX_det_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">State taxes</h4>
+                          </div>
+                          <div class="modal-body"><p><span style="font-weight: bold">Filing status</span><span> shows how the family filed their taxes based on marital status, presence of children in the household, and how income is distributed between the adults. This simulation assumes that if the adults are not married, </span>
+<span style = "font-weight:bold"> Adult #1</span><span> claims all children in the household as dependents.</span></p>
+                         <p><span style="font-weight: bold">Adjusted gross income</span><span> is equal to the family's monthly income.</span></p>
+                         <p><span style="font-weight: bold">Standard deduction</span><span> is the amount that reduces the income on which the family is taxed and varies according to the filing status.</span><p>
+                         <p><span style="font-weight: bold">Taxable income</span><span> is the amount of the family's income used to calculate Oregon income tax. For this simulation, we subtract the federal income taxes and the standard deduction from the adjusted gross income to get the family's taxable income</span></p>
+                         <p><span style="font-weight: bold">Gross tax</span><span> is the amount of Oregon income tax the family would owe without applying the personal exemption credit.</span></p>
+                         <p><span style="font-weight: bold">Exemption credit amount</span><span> reduces the amount of Oregon income taxes owed by $195 for each person.</span></p>
+                         <p><span style="font-weight: bold">Net tax</span><span> is the amount of Oregon income taxes owed after applying personal exemption credits.</span></p>
+                         </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="stateTaxTable_detailed_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-info">
+                  <div class="box-header">
+                    <h3 class="box-title">Residence</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="res_detHelp_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="resHelpBtn" tabindex="-1" data-sbs-trigger="res_detHelp_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Residence</h4>
+                          </div>
+                          <div class="modal-body"><p><span style="font-weight: bold">Zip code</span><span> is the zip code entered for the most recent family profile on the "Enter family attributes" page.</span></p>
+<p><span style="font-weight: bold">City</span><span> is the city that corresponds to the zip code.</span></p>
+                         <p><span style="font-weight: bold">County</span><span> is the county that corresponds to the zip code.</span></p>
+                         <p><span style="font-weight: bold">Fair Market Rent</span><span> represents the gross rent estimates that include rent and tenant-paid utilities set as the 40th percentile rent (the dollar amount below which 40% of standard quality rental units are rented). Utilities included in Fair Market Rents are electricity, gas, water, sewer, and trash removal. Telephone service is not included.</span></p>
+                         <p><span style="font-weight: bold">Number of bedrooms</span><span> is the number of bedrooms entered for the most recent family profile on the "Enter Family Attributes" page. The number of bedrooms is used to identify the Fair Market Rent.</span></p>
+                         </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="residenceDetailedUI" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title">Advance Premium Tax Credit</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="APTC_help_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="aptcHelpBtn" tabindex="-1" data-sbs-trigger="APTC_help_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Advance Premium Tax Credit (APTC)</h4>
+                          </div>
+                          <div class="modal-body"><p><span>
+	The Advance Premium Tax Credit (APTC) is a refundable tax credit designed to help eligible individuals and families afford health insurance. This credit is estimated for family members who are not eligible for the Oregon Health Plan through Medicaid and/or the Children's Health Insurance Program (CHIP).  Estimates assume working adults do not have access to a job-based health insurance plan and instead purchase a benchmark health insurance plan from the Health Insurance Marketplace. 
+                         Recipients of the APTC can choose to have the credit paid directly to their insurance company each month to lower their monthly payments or they can choose to get the credit when they file their tax return for the year.
+                         </span></p>
+                         <p><span style="font-weight: bold">Expected contribution, Adult 1</span><span> is the share of income Adult 1 is expected to contribute toward the cost of health insurance. The share is based on a sliding scale. Those who earn less have a smaller expected contribution and those who make more have a larger expected contribution.</span></p>
+                         <p><span style="font-weight: bold">Expected contribution, Adult 2</span><span> is the share of income Adult 2 is expected to contribute toward the cost of health insurance.</span></p>
+                         <p><span style= "font-weight: bold">Family healthcare cost</span><span> is the cost of a benchmark health insurance plan from the Health Insurance Marketplace before applying the Advance Premium Tax Credit for all family members who do not qualify for the Oregon Health Plan. Benchmark plans are the second lowest cost silver health insurance plan available for that individual based on age and location. </span></p>
+                         <p><span style="font-weight: bold">Advance Premium Tax Credit</span><span> is the amount of credit the family is eligible for to offset the cost of health insurance. The estimate is equal to the family healthcare cost minus the expected contribution.</span></p>
+                         </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="aptcTable_detailed_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title">Earned income tax credits</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="EITC_help_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="eitcHelpBtn" tabindex="-1" data-sbs-trigger="EITC_help_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Earned income tax credits</h4>
+                          </div>
+                          <div class="modal-body"><p><span>This box shows refundable tax credits for the entire household. Though most people receive a lump sum once a year, the values shown are monthly averages.</span></p>
+<p><span style="font-weight: bold">Earned Income Tax Credit</span><span> is the amount of federal Earned Income Tax Credit (EITC) the family is eligible for. The EITC is a refundable credit for working people with low to moderate income. The credit amount depends on the filer's income, marital status, and number of children. The amount the family receives in a refund depends on federal income taxes owed and eligibility for other refundable tax credits.</span></p>
+                         <p><span style="font-weight: bold">Oregon Earned Income Credit</span><span> is the amount of Oregon Earned Income Credit the family is eligible for. This credit is equal to 8% of the family’s federal Earned Income Tax Credit. The amount the family receives in a refund depends on Oregon income taxes owed and eligibility for other refundable tax credits.</span></p>
+                         </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="eitcTable_detailed_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title">Working Families Dependent Care Credit</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="WFDCC_Help_btn" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-question-circle"></i>
+                      
+                    </button>
+                    <div class="modal sbs-modal fade" id="wfdccHelpBtn" tabindex="-1" data-sbs-trigger="WFDCC_Help_btn">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span>&times;</span>
+                            </button>
+                            <h4 class="modal-title">Working Families Dependent Care Credit (WFDCC)</h4>
+                          </div>
+                          <div class="modal-body"><p><span>The Working Families Dependent Care Credit (WFDCC) is a refundable tax credit for employment-related childcare expenses equal to a percentage of those expenses based on the families' Federal Poverty Level and the age of the youngest child.</span></p>
+<p><span style="font-weight: bold">Youngest Child Age Range</span><span> is the age category of the youngest child in the family. The age category is used to determine the portion of childcare costs that may be refunded.</span></p>
+                         <p><span style="font-weight: bold">Credit %</span><span> is the portion of childcare costs that may be refunded.</span></p>
+                         <p><span style="font-weight: bold">Credit Amount</span><span> is the dollar amount of childcare costs the family is eligible to have refunded through the Working Families Dependent Care Credit.</span></p>
+                         </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="wfdccTable_detailed_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-debugging">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="box">
+                  <div class="box-header">
+                    <h3 class="box-title">Tidy DF</h3>
+                  </div>
+                  <div class="box-body">
+                    <div id="tidyPlot_df_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="box">
+                  <div class="box-header">
+                    <h3 class="box-title">FPL Line DF</h3>
+                  </div>
+                  <div class="box-body">
+                    <div id="fplLine_df_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-saved">
+            <div class="row">
+              <div class='col-sm-4' style='min-width: 3200px !important;'>
+              <div class="col-sm-6">
+                <div class="box box-warning">
+                  <div class="box-header">
+                    <h3 class="box-title">Saved examples for comparison</h3>
+                  </div>
+                  <div class="box-body">
+                    <button id="delete" type="button" class="btn btn-default action-button">
+                      <i class="fa fa-trash-o"></i>
+                      Delete Saved Data
+                    </button>
+                    <script>$(document).ready(function() {setTimeout(function() {shinyBS.addTooltip('delete', 'tooltip', {'placement': 'right', 'trigger': 'hover', 'title': 'Deletes first row of data unless another row (not ID number) is indicated below.'})}, 500)});</script>
+                    <div class="form-group shiny-input-container">
+                      <label for="row.selection">Select row to delete</label>
+                      <input id="row.selection" type="number" class="form-control" value="" min="1" max="100"/>
+                    </div>
+                    <div id="valuesDF_out" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+
+</html>
